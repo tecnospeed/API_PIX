@@ -1,0 +1,2797 @@
+{
+	"info": {
+		"_postman_id": "15787c3e-314a-4297-aa58-38e622c9ad4f",
+		"name": "API PIX",
+		"description": "Client API for pix project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "oauth2 Software House",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "SENHA",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "EMAIL",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "text"
+								},
+								{
+									"key": "role",
+									"value": "software_house",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://pix.tecnospeed.com.br/oauth2/token",
+							"protocol": "https",
+							"host": [
+								"pix",
+								"tecnospeed",
+								"com",
+								"br"
+							],
+							"path": [
+								"oauth2",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "oauth2 Company",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "CLIENT_SECRET",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "CLIENT_ID",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "text"
+								},
+								{
+									"key": "role",
+									"value": "company",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://pix.tecnospeed.com.br/oauth2/token",
+							"protocol": "https",
+							"host": [
+								"pix",
+								"tecnospeed",
+								"com",
+								"br"
+							],
+							"path": [
+								"oauth2",
+								"token"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "companies",
+			"item": [
+				{
+					"name": "Criar uma empresa",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJJZCI6ImU4N2Y0ODlhLTAzYjUtNDkwOS05MDMwLWM5ZTA2ODI4ZjcyMCIsImVtYWlsIjoibGVvbmFyZG8uc291emFAdGVjbm9zcGVlZC5jb20uYnIiLCJ4X2FwaV9rZXkiOiJkNmVmOWI1OWVhNTA3NDRiODAzYWI0NWI0MDY2YmNhZSIsImNyZWF0ZWQiOjE2Mzg1MzM4Njc1OTJ9LCJpYXQiOjE2Mzg1MzM4Njd9.BXvQsRggtridfIwi3Ra2XFdOygH2kwTKoZix5OZw2jM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Ingá Softwarehouse\",\n  \"email\": \"contato@ingsoft.com.br\",\n  \"cpfCnpj\": \"32052710000151\",\n  \"city\": \"Maringá\",\n  \"state\": \"PR\",\n  \"zipcode\": \"87045170\",\n  \"accounts\": [\n    {\n      \"description\": \"Conta do Banco ABC\",\n      \"bankCode\": \"341\",\n      \"pixKey\": \"988680626\",\n      \"clientId\": \"089231s\",\n      \"clientKey\": \"kldas21380927\",\n      \"clientSecret\": \"kldas21380927\"\n    }\n  ]\n}"
+						},
+						"url": {
+							"raw": "https://pix.tecnospeed.com.br/sandbox/companies",
+							"protocol": "https",
+							"host": [
+								"pix",
+								"tecnospeed",
+								"com",
+								"br"
+							],
+							"path": [
+								"sandbox",
+								"companies"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Untitled Example",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: oauth2",
+										"key": "Authorization",
+										"value": "<token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"<string>\",\n    \"email\": \"<string>\",\n    \"cpfCnpj\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zipcode\": \"<string>\",\n    \"accounts\": [\n        \"<array>\",\n        \"<array>\"\n    ]\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/companies",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"companies"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"surrogateKey\": \"adipisicing proident nulla qui\",\n \"cpfCnpj\": \"veniam ipsum exercitation\",\n \"name\": \"ex\",\n \"email\": \"laboris\",\n \"city\": \"con\",\n \"state\": \"laboris non nisi qui\",\n \"zipcode\": \"dolor consectetur sunt dolore\",\n \"createdAt\": \"1987-08-18T20:30:24.378Z\",\n \"updatedAt\": \"1947-07-18T02:29:40.220Z\"\n}"
+						},
+						{
+							"name": "Untitled Example",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: oauth2",
+										"key": "Authorization",
+										"value": "<token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"<string>\",\n    \"email\": \"<string>\",\n    \"cpfCnpj\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zipcode\": \"<string>\",\n    \"accounts\": [\n        \"<array>\",\n        \"<array>\"\n    ]\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/companies",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"companies"
+									]
+								}
+							},
+							"status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"code\": 422,\n \"errors\": [\n  {\n   \"type\": \"business_logic\",\n   \"property\": \"dueDate\",\n   \"message\": \"email should not be empty\"\n  }\n ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Listar empresas cadastradas",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJJZCI6ImU4N2Y0ODlhLTAzYjUtNDkwOS05MDMwLWM5ZTA2ODI4ZjcyMCIsImVtYWlsIjoibGVvbmFyZG8uc291emFAdGVjbm9zcGVlZC5jb20uYnIiLCJ4X2FwaV9rZXkiOiJkNmVmOWI1OWVhNTA3NDRiODAzYWI0NWI0MDY2YmNhZSIsImNyZWF0ZWQiOjE2Mzg1MzM4Njc1OTJ9LCJpYXQiOjE2Mzg1MzM4Njd9.BXvQsRggtridfIwi3Ra2XFdOygH2kwTKoZix5OZw2jM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://pix.tecnospeed.com.br/sandbox/companies",
+							"protocol": "https",
+							"host": [
+								"pix",
+								"tecnospeed",
+								"com",
+								"br"
+							],
+							"path": [
+								"sandbox",
+								"companies"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Untitled Example",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: oauth2",
+										"key": "Authorization",
+										"value": "<token>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/companies",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"companies"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n {\n  \"surrogateKey\": \"incididunt ut velit\",\n  \"cpfCnpj\": \"mollit\",\n  \"name\": \"velit proident sint exercitation\",\n  \"email\": \"aliqua fugiat\",\n  \"city\": \"ut ut ad\",\n  \"state\": \"ut sit\",\n  \"zipcode\": \"nulla nostrud velit\",\n  \"createdAt\": \"1979-01-20T10:59:56.397Z\",\n  \"updatedAt\": \"1982-09-27T16:09:57.591Z\"\n },\n {\n  \"surrogateKey\": \"veniam sit sint incididunt cupidatat\",\n  \"cpfCnpj\": \"dolore officia\",\n  \"name\": \"occaecat in\",\n  \"email\": \"reprehenderit dolor\",\n  \"city\": \"nulla qui dolor\",\n  \"state\": \"Duis consequat\",\n  \"zipcode\": \"reprehenderit sit sed labore\",\n  \"createdAt\": \"1992-03-22T01:41:06.468Z\",\n  \"updatedAt\": \"2002-10-23T21:32:08.191Z\"\n }\n]"
+						}
+					]
+				},
+				{
+					"name": "Company Controller Update Company",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJJZCI6ImU4N2Y0ODlhLTAzYjUtNDkwOS05MDMwLWM5ZTA2ODI4ZjcyMCIsImVtYWlsIjoibGVvbmFyZG8uc291emFAdGVjbm9zcGVlZC5jb20uYnIiLCJ4X2FwaV9rZXkiOiJkNmVmOWI1OWVhNTA3NDRiODAzYWI0NWI0MDY2YmNhZSIsImNyZWF0ZWQiOjE2Mzg1MzM4Njc1OTJ9LCJpYXQiOjE2Mzg1MzM4Njd9.BXvQsRggtridfIwi3Ra2XFdOygH2kwTKoZix5OZw2jM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Ingá Softwarehouse\",\n  \"email\": \"contato@ingsoft.com.br\",\n  \"city\": \"Maringá\",\n  \"state\": \"PR\",\n  \"zipcode\": \"87045170\"\n}"
+						},
+						"url": {
+							"raw": "https://pix.tecnospeed.com.br/sandbox/companies/{id}",
+							"protocol": "https",
+							"host": [
+								"pix",
+								"tecnospeed",
+								"com",
+								"br"
+							],
+							"path": [
+								"sandbox",
+								"companies",
+								"{id}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Untitled Example",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zipcode\": \"<string>\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/companies/:accountId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"companies",
+										":accountId"
+									],
+									"variable": [
+										{
+											"key": "accountId"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Desativar uma empresa",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJJZCI6ImU4N2Y0ODlhLTAzYjUtNDkwOS05MDMwLWM5ZTA2ODI4ZjcyMCIsImVtYWlsIjoibGVvbmFyZG8uc291emFAdGVjbm9zcGVlZC5jb20uYnIiLCJ4X2FwaV9rZXkiOiJkNmVmOWI1OWVhNTA3NDRiODAzYWI0NWI0MDY2YmNhZSIsImNyZWF0ZWQiOjE2Mzg1MzM4Njc1OTJ9LCJpYXQiOjE2Mzg1MzM4Njd9.BXvQsRggtridfIwi3Ra2XFdOygH2kwTKoZix5OZw2jM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://pix.tecnospeed.com.br/sandbox/companies/{id}",
+							"protocol": "https",
+							"host": [
+								"pix",
+								"tecnospeed",
+								"com",
+								"br"
+							],
+							"path": [
+								"sandbox",
+								"companies",
+								"{id}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Untitled Example",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: oauth2",
+										"key": "Authorization",
+										"value": "<token>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/companies/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"companies",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"code\": -58176456.51218739,\n \"message\": \"voluptate sit et do\"\n}"
+						},
+						{
+							"name": "Untitled Example",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: oauth2",
+										"key": "Authorization",
+										"value": "<token>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/companies/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"companies",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id"
+										}
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"surrogateKey\": \"adipisicing proident nulla qui\",\n \"cpfCnpj\": \"veniam ipsum exercitation\",\n \"name\": \"ex\",\n \"email\": \"laboris\",\n \"city\": \"con\",\n \"state\": \"laboris non nisi qui\",\n \"zipcode\": \"dolor consectetur sunt dolore\",\n \"createdAt\": \"1987-08-18T20:30:24.378Z\",\n \"updatedAt\": \"1947-07-18T02:29:40.220Z\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "accounts",
+			"item": [
+				{
+					"name": "Cadastrar conta de emissão",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJraWQiOiJKVGlUdEZnTnFrbUFuemMrXC9vNXRvSkhDdVVcL1ZUZWZ0bEVYWlJhZlY2RTQ9IiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiI1aXI0b2c3OGM4cmI3OXJvYnBkbTk5YjY4bSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXBpLWFjY2Vzc1wvY29tcGFueS5hZG1pbiIsImF1dGhfdGltZSI6MTYzODUzMzk5MywiaXNzIjoiaHR0cHM6XC9cL2NvZ25pdG8taWRwLnVzLWVhc3QtMS5hbWF6b25hd3MuY29tXC91cy1lYXN0LTFfcHFURGdtbE1qIiwiZXhwIjoxNjM4NTM3NTkzLCJpYXQiOjE2Mzg1MzM5OTMsInZlcnNpb24iOjIsImp0aSI6IjZmMGVhNDczLWYyOWEtNGFjNS05NWI5LTdkMzE4YTQwYzczNiIsImNsaWVudF9pZCI6IjVpcjRvZzc4YzhyYjc5cm9icGRtOTliNjhtIn0.fJuMLxkvHwjInfxyQocWZ0RHSlt5wGFDcp1DYXkP5o8WAFvVHgkgLzq6nhaya4PCqRP0Q3YCYy3RVipEfbOP9TBgXMmoHdOCskmMlyGZBdZEubFUoJ6LUGa2llXGzwwEjbre6ocv1dz5ZAFQNY2WiZakNwI9DJ10UpSzqRSJ8Q2_kzZeIRS6-jRYgXRMk4eEKFB5g2p4DPgOdU1xvFZzoi3lMZ-9J-61H1_5VQIb92eKeehwALC3wMFb_babDe1_P2XklKVMZpGaR-PUZvBc5H5bRZNc-H5bgtYgk0S2-4TG7C46U3TarQ7T_mCyh64BjCaWNhzA-vUSCOpWbNoYWw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"bankAccount\": \"528754\",\n\t\"bankAgency\": \"201\",\n\t\"bankCode\": \"341\",\n    \"bankAccountType\":\"CHECKING\",\n\t\"clientId\": \"a477ed3c-0000-111-2222-52bcd6309131\",\n\t\"clientSecret\": \"9dc84cc8-2222-0000-5555-4378489340e7\",\n\t\"pixKey\": \"9985564985998\"\n}"
+						},
+						"url": {
+							"raw": "https://pix.tecnospeed.com.br/sandbox/accounts",
+							"protocol": "https",
+							"host": [
+								"pix",
+								"tecnospeed",
+								"com",
+								"br"
+							],
+							"path": [
+								"sandbox",
+								"accounts"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Untitled Example",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: oauth2",
+										"key": "Authorization",
+										"value": "<token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"bankCode\": \"341\",\n    \"bankAccount\": \"13123215\",\n    \"bankAgency\": \"1234\",\n    \"bankAccountType\": \"SAVINGS\",\n    \"pixKey\": \"<string>\",\n    \"clientId\": \"089231s\",\n    \"clientSecret\": \"kldas21380927\",\n    \"description\": \"Conta de cobrança\",\n    \"bankAccountDv\": \"1\",\n    \"bankAgencyDv\": \"1\",\n    \"clientKey\": \"kldas21380927\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/accounts",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"accounts"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"surrogateKey\": \"amet laborum non\",\n \"description\": \"tempor pariatur ad\",\n \"bankCode\": \"sed Excepteur labore magna\",\n \"status\": \"anim elit adipisicing in\",\n \"bankAccount\": \"in fugiat cillum mollit\",\n \"bankAccountDv\": \"ut\",\n \"bankAgency\": \"dolor cillum incididunt veniam mollit\",\n \"bankAgencyDv\": \"reprehenderit tempor\",\n \"bankAccountType\": \"est\",\n \"pixKey\": \"irure consequat tempor nisi eiusmod\",\n \"clientId\": \"co\",\n \"clientKey\": \"culpa do ut irure\",\n \"clientSecret\": \"velit veniam eiusmod \",\n \"createdAt\": \"2016-06-30T08:51:41.233Z\",\n \"updatedAt\": \"1986-08-02T15:31:38.193Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Listar contas",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJraWQiOiJKVGlUdEZnTnFrbUFuemMrXC9vNXRvSkhDdVVcL1ZUZWZ0bEVYWlJhZlY2RTQ9IiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiI1aXI0b2c3OGM4cmI3OXJvYnBkbTk5YjY4bSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXBpLWFjY2Vzc1wvY29tcGFueS5hZG1pbiIsImF1dGhfdGltZSI6MTYzODUzMzk5MywiaXNzIjoiaHR0cHM6XC9cL2NvZ25pdG8taWRwLnVzLWVhc3QtMS5hbWF6b25hd3MuY29tXC91cy1lYXN0LTFfcHFURGdtbE1qIiwiZXhwIjoxNjM4NTM3NTkzLCJpYXQiOjE2Mzg1MzM5OTMsInZlcnNpb24iOjIsImp0aSI6IjZmMGVhNDczLWYyOWEtNGFjNS05NWI5LTdkMzE4YTQwYzczNiIsImNsaWVudF9pZCI6IjVpcjRvZzc4YzhyYjc5cm9icGRtOTliNjhtIn0.fJuMLxkvHwjInfxyQocWZ0RHSlt5wGFDcp1DYXkP5o8WAFvVHgkgLzq6nhaya4PCqRP0Q3YCYy3RVipEfbOP9TBgXMmoHdOCskmMlyGZBdZEubFUoJ6LUGa2llXGzwwEjbre6ocv1dz5ZAFQNY2WiZakNwI9DJ10UpSzqRSJ8Q2_kzZeIRS6-jRYgXRMk4eEKFB5g2p4DPgOdU1xvFZzoi3lMZ-9J-61H1_5VQIb92eKeehwALC3wMFb_babDe1_P2XklKVMZpGaR-PUZvBc5H5bRZNc-H5bgtYgk0S2-4TG7C46U3TarQ7T_mCyh64BjCaWNhzA-vUSCOpWbNoYWw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://pix.tecnospeed.com.br/sandbox/accounts",
+							"protocol": "https",
+							"host": [
+								"pix",
+								"tecnospeed",
+								"com",
+								"br"
+							],
+							"path": [
+								"sandbox",
+								"accounts"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Untitled Example",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: oauth2",
+										"key": "Authorization",
+										"value": "<token>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/accounts",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"accounts"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n {\n  \"surrogateKey\": \"q\",\n  \"description\": \"consequat esse in aliquip\",\n  \"bankCode\": \"Lorem id amet\",\n  \"status\": \"Excepteur ut\",\n  \"bankAccount\": \"sit\",\n  \"bankAccountDv\": \"mollit fugiat\",\n  \"bankAgency\": \"aute nulla reprehenderit qui\",\n  \"bankAgencyDv\": \"amet sit commodo est mini\",\n  \"bankAccountType\": \"incididunt\",\n  \"pixKey\": \"velit amet dolor\",\n  \"clientId\": \"exercitation aute\",\n  \"clientKey\": \"dolor\",\n  \"clientSecret\": \"ut ex\",\n  \"createdAt\": \"2019-08-08T06:18:24.065Z\",\n  \"updatedAt\": \"1953-05-26T19:49:29.049Z\"\n },\n {\n  \"surrogateKey\": \"exercitation amet adipisicing consequat\",\n  \"description\": \"aute eu\",\n  \"bankCode\": \"in aliqua sint dolor\",\n  \"status\": \"volupta\",\n  \"bankAccount\": \"minim dolor proident ea consectetur\",\n  \"bankAccountDv\": \"elit dolor in ullamco do\",\n  \"bankAgency\": \"aliquip irure mollit\",\n  \"bankAgencyDv\": \"laboris tempor sed eiusmod in\",\n  \"bankAccountType\": \"et in aliquip\",\n  \"pixKey\": \"aliquip\",\n  \"clientId\": \"magna qui\",\n  \"clientKey\": \"exercitat\",\n  \"clientSecret\": \"reprehenderit cupidatat do in ut\",\n  \"createdAt\": \"2014-12-18T09:27:58.976Z\",\n  \"updatedAt\": \"1971-09-26T15:25:50.034Z\"\n }\n]"
+						}
+					]
+				},
+				{
+					"name": "Atualizar conta",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJraWQiOiJKVGlUdEZnTnFrbUFuemMrXC9vNXRvSkhDdVVcL1ZUZWZ0bEVYWlJhZlY2RTQ9IiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiI1aXI0b2c3OGM4cmI3OXJvYnBkbTk5YjY4bSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXBpLWFjY2Vzc1wvY29tcGFueS5hZG1pbiIsImF1dGhfdGltZSI6MTYzODUzMzk5MywiaXNzIjoiaHR0cHM6XC9cL2NvZ25pdG8taWRwLnVzLWVhc3QtMS5hbWF6b25hd3MuY29tXC91cy1lYXN0LTFfcHFURGdtbE1qIiwiZXhwIjoxNjM4NTM3NTkzLCJpYXQiOjE2Mzg1MzM5OTMsInZlcnNpb24iOjIsImp0aSI6IjZmMGVhNDczLWYyOWEtNGFjNS05NWI5LTdkMzE4YTQwYzczNiIsImNsaWVudF9pZCI6IjVpcjRvZzc4YzhyYjc5cm9icGRtOTliNjhtIn0.fJuMLxkvHwjInfxyQocWZ0RHSlt5wGFDcp1DYXkP5o8WAFvVHgkgLzq6nhaya4PCqRP0Q3YCYy3RVipEfbOP9TBgXMmoHdOCskmMlyGZBdZEubFUoJ6LUGa2llXGzwwEjbre6ocv1dz5ZAFQNY2WiZakNwI9DJ10UpSzqRSJ8Q2_kzZeIRS6-jRYgXRMk4eEKFB5g2p4DPgOdU1xvFZzoi3lMZ-9J-61H1_5VQIb92eKeehwALC3wMFb_babDe1_P2XklKVMZpGaR-PUZvBc5H5bRZNc-H5bgtYgk0S2-4TG7C46U3TarQ7T_mCyh64BjCaWNhzA-vUSCOpWbNoYWw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"bankCode\": \"341\",\n  \"bankAccount\": \"13123215\",\n  \"pixKey\": \"string\",\n  \"clientId\": \"089231s\",\n  \"clientKey\": \"kldas21380927\",\n  \"clientSecret\": \"kldas21380927\"\n}"
+						},
+						"url": {
+							"raw": "https://pix.tecnospeed.com.br/sandbox/accounts/{id}",
+							"protocol": "https",
+							"host": [
+								"pix",
+								"tecnospeed",
+								"com",
+								"br"
+							],
+							"path": [
+								"sandbox",
+								"accounts",
+								"{id}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Untitled Example",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: oauth2",
+										"key": "Authorization",
+										"value": "<token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"bankCode\": \"341\",\n    \"bankAccount\": \"13123215\",\n    \"bankAgency\": \"1234\",\n    \"bankAccountType\": \"SAVINGS\",\n    \"pixKey\": \"<string>\",\n    \"clientId\": \"089231s\",\n    \"clientSecret\": \"kldas21380927\",\n    \"description\": \"Conta de cobrança\",\n    \"bankAccountDv\": \"1\",\n    \"bankAgencyDv\": \"1\",\n    \"clientKey\": \"kldas21380927\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/accounts/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"accounts",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"surrogateKey\": \"amet laborum non\",\n \"description\": \"tempor pariatur ad\",\n \"bankCode\": \"sed Excepteur labore magna\",\n \"status\": \"anim elit adipisicing in\",\n \"bankAccount\": \"in fugiat cillum mollit\",\n \"bankAccountDv\": \"ut\",\n \"bankAgency\": \"dolor cillum incididunt veniam mollit\",\n \"bankAgencyDv\": \"reprehenderit tempor\",\n \"bankAccountType\": \"est\",\n \"pixKey\": \"irure consequat tempor nisi eiusmod\",\n \"clientId\": \"co\",\n \"clientKey\": \"culpa do ut irure\",\n \"clientSecret\": \"velit veniam eiusmod \",\n \"createdAt\": \"2016-06-30T08:51:41.233Z\",\n \"updatedAt\": \"1986-08-02T15:31:38.193Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Inativar conta",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJraWQiOiJKVGlUdEZnTnFrbUFuemMrXC9vNXRvSkhDdVVcL1ZUZWZ0bEVYWlJhZlY2RTQ9IiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiI1aXI0b2c3OGM4cmI3OXJvYnBkbTk5YjY4bSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXBpLWFjY2Vzc1wvY29tcGFueS5hZG1pbiIsImF1dGhfdGltZSI6MTYzODUzMzk5MywiaXNzIjoiaHR0cHM6XC9cL2NvZ25pdG8taWRwLnVzLWVhc3QtMS5hbWF6b25hd3MuY29tXC91cy1lYXN0LTFfcHFURGdtbE1qIiwiZXhwIjoxNjM4NTM3NTkzLCJpYXQiOjE2Mzg1MzM5OTMsInZlcnNpb24iOjIsImp0aSI6IjZmMGVhNDczLWYyOWEtNGFjNS05NWI5LTdkMzE4YTQwYzczNiIsImNsaWVudF9pZCI6IjVpcjRvZzc4YzhyYjc5cm9icGRtOTliNjhtIn0.fJuMLxkvHwjInfxyQocWZ0RHSlt5wGFDcp1DYXkP5o8WAFvVHgkgLzq6nhaya4PCqRP0Q3YCYy3RVipEfbOP9TBgXMmoHdOCskmMlyGZBdZEubFUoJ6LUGa2llXGzwwEjbre6ocv1dz5ZAFQNY2WiZakNwI9DJ10UpSzqRSJ8Q2_kzZeIRS6-jRYgXRMk4eEKFB5g2p4DPgOdU1xvFZzoi3lMZ-9J-61H1_5VQIb92eKeehwALC3wMFb_babDe1_P2XklKVMZpGaR-PUZvBc5H5bRZNc-H5bgtYgk0S2-4TG7C46U3TarQ7T_mCyh64BjCaWNhzA-vUSCOpWbNoYWw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://pix.tecnospeed.com.br/sandbox/accounts/e11b36d4-9732-4ce9-83d4-dd295d9d3383",
+							"protocol": "https",
+							"host": [
+								"pix",
+								"tecnospeed",
+								"com",
+								"br"
+							],
+							"path": [
+								"sandbox",
+								"accounts",
+								"e11b36d4-9732-4ce9-83d4-dd295d9d3383"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Untitled Example",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: oauth2",
+										"key": "Authorization",
+										"value": "<token>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/accounts/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"accounts",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id"
+										}
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "certificado",
+			"item": [
+				{
+					"name": "Upload",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJraWQiOiJKVGlUdEZnTnFrbUFuemMrXC9vNXRvSkhDdVVcL1ZUZWZ0bEVYWlJhZlY2RTQ9IiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiI1aXI0b2c3OGM4cmI3OXJvYnBkbTk5YjY4bSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXBpLWFjY2Vzc1wvY29tcGFueS5hZG1pbiIsImF1dGhfdGltZSI6MTYzODUzMzk5MywiaXNzIjoiaHR0cHM6XC9cL2NvZ25pdG8taWRwLnVzLWVhc3QtMS5hbWF6b25hd3MuY29tXC91cy1lYXN0LTFfcHFURGdtbE1qIiwiZXhwIjoxNjM4NTM3NTkzLCJpYXQiOjE2Mzg1MzM5OTMsInZlcnNpb24iOjIsImp0aSI6IjZmMGVhNDczLWYyOWEtNGFjNS05NWI5LTdkMzE4YTQwYzczNiIsImNsaWVudF9pZCI6IjVpcjRvZzc4YzhyYjc5cm9icGRtOTliNjhtIn0.fJuMLxkvHwjInfxyQocWZ0RHSlt5wGFDcp1DYXkP5o8WAFvVHgkgLzq6nhaya4PCqRP0Q3YCYy3RVipEfbOP9TBgXMmoHdOCskmMlyGZBdZEubFUoJ6LUGa2llXGzwwEjbre6ocv1dz5ZAFQNY2WiZakNwI9DJ10UpSzqRSJ8Q2_kzZeIRS6-jRYgXRMk4eEKFB5g2p4DPgOdU1xvFZzoi3lMZ-9J-61H1_5VQIb92eKeehwALC3wMFb_babDe1_P2XklKVMZpGaR-PUZvBc5H5bRZNc-H5bgtYgk0S2-4TG7C46U3TarQ7T_mCyh64BjCaWNhzA-vUSCOpWbNoYWw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": []
+								},
+								{
+									"key": "password",
+									"value": "teste",
+									"type": "text"
+								},
+								{
+									"key": "extension",
+									"value": "pfx",
+									"type": "text"
+								},
+								{
+									"key": "accountId",
+									"value": "30921390281",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://pix.tecnospeed.com.br/sandbox/certificate/upload",
+							"protocol": "https",
+							"host": [
+								"pix",
+								"tecnospeed",
+								"com",
+								"br"
+							],
+							"path": [
+								"sandbox",
+								"certificate",
+								"upload"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "change certificate",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJraWQiOiJKVGlUdEZnTnFrbUFuemMrXC9vNXRvSkhDdVVcL1ZUZWZ0bEVYWlJhZlY2RTQ9IiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiI1aXI0b2c3OGM4cmI3OXJvYnBkbTk5YjY4bSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXBpLWFjY2Vzc1wvY29tcGFueS5hZG1pbiIsImF1dGhfdGltZSI6MTYzODUzMzk5MywiaXNzIjoiaHR0cHM6XC9cL2NvZ25pdG8taWRwLnVzLWVhc3QtMS5hbWF6b25hd3MuY29tXC91cy1lYXN0LTFfcHFURGdtbE1qIiwiZXhwIjoxNjM4NTM3NTkzLCJpYXQiOjE2Mzg1MzM5OTMsInZlcnNpb24iOjIsImp0aSI6IjZmMGVhNDczLWYyOWEtNGFjNS05NWI5LTdkMzE4YTQwYzczNiIsImNsaWVudF9pZCI6IjVpcjRvZzc4YzhyYjc5cm9icGRtOTliNjhtIn0.fJuMLxkvHwjInfxyQocWZ0RHSlt5wGFDcp1DYXkP5o8WAFvVHgkgLzq6nhaya4PCqRP0Q3YCYy3RVipEfbOP9TBgXMmoHdOCskmMlyGZBdZEubFUoJ6LUGa2llXGzwwEjbre6ocv1dz5ZAFQNY2WiZakNwI9DJ10UpSzqRSJ8Q2_kzZeIRS6-jRYgXRMk4eEKFB5g2p4DPgOdU1xvFZzoi3lMZ-9J-61H1_5VQIb92eKeehwALC3wMFb_babDe1_P2XklKVMZpGaR-PUZvBc5H5bRZNc-H5bgtYgk0S2-4TG7C46U3TarQ7T_mCyh64BjCaWNhzA-vUSCOpWbNoYWw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "description",
+									"value": "Meu certificado",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "text"
+								},
+								{
+									"key": "extension",
+									"value": "pfx",
+									"type": "text"
+								},
+								{
+									"key": "accountId",
+									"value": "a3985b90-8c82-455e-8200-2a04fba61e76",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": []
+								},
+								{
+									"key": "key",
+									"value": "1235689",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://pix.tecnospeed.com.br/sandbox/certificate/{accountId}",
+							"protocol": "https",
+							"host": [
+								"pix",
+								"tecnospeed",
+								"com",
+								"br"
+							],
+							"path": [
+								"sandbox",
+								"certificate",
+								"{accountId}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Download certificate",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJraWQiOiJKVGlUdEZnTnFrbUFuemMrXC9vNXRvSkhDdVVcL1ZUZWZ0bEVYWlJhZlY2RTQ9IiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiI1aXI0b2c3OGM4cmI3OXJvYnBkbTk5YjY4bSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXBpLWFjY2Vzc1wvY29tcGFueS5hZG1pbiIsImF1dGhfdGltZSI6MTYzODUzMzk5MywiaXNzIjoiaHR0cHM6XC9cL2NvZ25pdG8taWRwLnVzLWVhc3QtMS5hbWF6b25hd3MuY29tXC91cy1lYXN0LTFfcHFURGdtbE1qIiwiZXhwIjoxNjM4NTM3NTkzLCJpYXQiOjE2Mzg1MzM5OTMsInZlcnNpb24iOjIsImp0aSI6IjZmMGVhNDczLWYyOWEtNGFjNS05NWI5LTdkMzE4YTQwYzczNiIsImNsaWVudF9pZCI6IjVpcjRvZzc4YzhyYjc5cm9icGRtOTliNjhtIn0.fJuMLxkvHwjInfxyQocWZ0RHSlt5wGFDcp1DYXkP5o8WAFvVHgkgLzq6nhaya4PCqRP0Q3YCYy3RVipEfbOP9TBgXMmoHdOCskmMlyGZBdZEubFUoJ6LUGa2llXGzwwEjbre6ocv1dz5ZAFQNY2WiZakNwI9DJ10UpSzqRSJ8Q2_kzZeIRS6-jRYgXRMk4eEKFB5g2p4DPgOdU1xvFZzoi3lMZ-9J-61H1_5VQIb92eKeehwALC3wMFb_babDe1_P2XklKVMZpGaR-PUZvBc5H5bRZNc-H5bgtYgk0S2-4TG7C46U3TarQ7T_mCyh64BjCaWNhzA-vUSCOpWbNoYWw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://pix.tecnospeed.com.br/sandbox/certificate/download/a3985b90-8c82-455e-8200-2a04fba61e76/pfx",
+							"protocol": "https",
+							"host": [
+								"pix",
+								"tecnospeed",
+								"com",
+								"br"
+							],
+							"path": [
+								"sandbox",
+								"certificate",
+								"download",
+								"a3985b90-8c82-455e-8200-2a04fba61e76",
+								"pfx"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "convert PFX to PEM",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJraWQiOiJKVGlUdEZnTnFrbUFuemMrXC9vNXRvSkhDdVVcL1ZUZWZ0bEVYWlJhZlY2RTQ9IiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiI1aXI0b2c3OGM4cmI3OXJvYnBkbTk5YjY4bSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXBpLWFjY2Vzc1wvY29tcGFueS5hZG1pbiIsImF1dGhfdGltZSI6MTYzODUzMzk5MywiaXNzIjoiaHR0cHM6XC9cL2NvZ25pdG8taWRwLnVzLWVhc3QtMS5hbWF6b25hd3MuY29tXC91cy1lYXN0LTFfcHFURGdtbE1qIiwiZXhwIjoxNjM4NTM3NTkzLCJpYXQiOjE2Mzg1MzM5OTMsInZlcnNpb24iOjIsImp0aSI6IjZmMGVhNDczLWYyOWEtNGFjNS05NWI5LTdkMzE4YTQwYzczNiIsImNsaWVudF9pZCI6IjVpcjRvZzc4YzhyYjc5cm9icGRtOTliNjhtIn0.fJuMLxkvHwjInfxyQocWZ0RHSlt5wGFDcp1DYXkP5o8WAFvVHgkgLzq6nhaya4PCqRP0Q3YCYy3RVipEfbOP9TBgXMmoHdOCskmMlyGZBdZEubFUoJ6LUGa2llXGzwwEjbre6ocv1dz5ZAFQNY2WiZakNwI9DJ10UpSzqRSJ8Q2_kzZeIRS6-jRYgXRMk4eEKFB5g2p4DPgOdU1xvFZzoi3lMZ-9J-61H1_5VQIb92eKeehwALC3wMFb_babDe1_P2XklKVMZpGaR-PUZvBc5H5bRZNc-H5bgtYgk0S2-4TG7C46U3TarQ7T_mCyh64BjCaWNhzA-vUSCOpWbNoYWw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "description",
+									"value": "Meu certificado convertido",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123",
+									"type": "text"
+								},
+								{
+									"key": "extension",
+									"value": "p12",
+									"type": "text"
+								},
+								{
+									"key": "accountId",
+									"value": "a3985b90-8c82-455e-8200-2a04fba61e76",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": []
+								},
+								{
+									"key": "key",
+									"value": "1234",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://pix.tecnospeed.com.br/sandbox/certificate/pfxtopem",
+							"protocol": "https",
+							"host": [
+								"pix",
+								"tecnospeed",
+								"com",
+								"br"
+							],
+							"path": [
+								"sandbox",
+								"certificate",
+								"pfxtopem"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Validate",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "teste",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": []
+								},
+								{
+									"key": "password",
+									"value": "teste",
+									"type": "text"
+								},
+								{
+									"key": "extension",
+									"value": "pfx",
+									"type": "text"
+								},
+								{
+									"key": "accountId",
+									"value": "30921390281",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://pix.tecnospeed.com.br/sandbox/certificate/validate",
+							"protocol": "https",
+							"host": [
+								"pix",
+								"tecnospeed",
+								"com",
+								"br"
+							],
+							"path": [
+								"sandbox",
+								"certificate",
+								"validate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "teste",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://pix.tecnospeed.com.br/sandbox/certificate",
+							"protocol": "https",
+							"host": [
+								"pix",
+								"tecnospeed",
+								"com",
+								"br"
+							],
+							"path": [
+								"sandbox",
+								"certificate"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "Criar usuário",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJraWQiOiJKVGlUdEZnTnFrbUFuemMrXC9vNXRvSkhDdVVcL1ZUZWZ0bEVYWlJhZlY2RTQ9IiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiI1aXI0b2c3OGM4cmI3OXJvYnBkbTk5YjY4bSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXBpLWFjY2Vzc1wvY29tcGFueS5hZG1pbiIsImF1dGhfdGltZSI6MTYzODUzMzk5MywiaXNzIjoiaHR0cHM6XC9cL2NvZ25pdG8taWRwLnVzLWVhc3QtMS5hbWF6b25hd3MuY29tXC91cy1lYXN0LTFfcHFURGdtbE1qIiwiZXhwIjoxNjM4NTM3NTkzLCJpYXQiOjE2Mzg1MzM5OTMsInZlcnNpb24iOjIsImp0aSI6IjZmMGVhNDczLWYyOWEtNGFjNS05NWI5LTdkMzE4YTQwYzczNiIsImNsaWVudF9pZCI6IjVpcjRvZzc4YzhyYjc5cm9icGRtOTliNjhtIn0.fJuMLxkvHwjInfxyQocWZ0RHSlt5wGFDcp1DYXkP5o8WAFvVHgkgLzq6nhaya4PCqRP0Q3YCYy3RVipEfbOP9TBgXMmoHdOCskmMlyGZBdZEubFUoJ6LUGa2llXGzwwEjbre6ocv1dz5ZAFQNY2WiZakNwI9DJ10UpSzqRSJ8Q2_kzZeIRS6-jRYgXRMk4eEKFB5g2p4DPgOdU1xvFZzoi3lMZ-9J-61H1_5VQIb92eKeehwALC3wMFb_babDe1_P2XklKVMZpGaR-PUZvBc5H5bRZNc-H5bgtYgk0S2-4TG7C46U3TarQ7T_mCyh64BjCaWNhzA-vUSCOpWbNoYWw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"João da Silva\",\n  \"email\": \"joao.silva@gmail.com\",\n  \"description\": \"Usuário do João do financeiro\",\n  \"scopes\": [\n    \"api-access/webhook.create\"\n  ]\n}"
+						},
+						"url": {
+							"raw": "https://pix.tecnospeed.com.br/sandbox/users",
+							"protocol": "https",
+							"host": [
+								"pix",
+								"tecnospeed",
+								"com",
+								"br"
+							],
+							"path": [
+								"sandbox",
+								"users"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Untitled Example",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: oauth2",
+										"key": "Authorization",
+										"value": "<token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"João da Silva\",\n    \"email\": \"joao.silva@gmail.com\",\n    \"scopes\": \"<string>\",\n    \"description\": \"Usuário do João do financeiro\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/users",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"surrogateKey\": \"consequat\",\n \"name\": \"veniam ullamco\",\n \"username\": \"deserunt proident veniam\",\n \"description\": \"minim anim dolore ut\",\n \"email\": \"sunt laborum cupidatat dolor\",\n \"scopes\": [\n  \"in pariatur \",\n  \"tempor eiusmod culpa cillum\"\n ],\n \"role\": \"veniam enim repreh\",\n \"status\": \"aliquip deserunt\",\n \"createdAt\": \"1988-01-25T09:42:23.695Z\",\n \"updatedAt\": \"1952-12-29T16:24:04.077Z\"\n}"
+						},
+						{
+							"name": "Untitled Example",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: oauth2",
+										"key": "Authorization",
+										"value": "<token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"João da Silva\",\n    \"email\": \"joao.silva@gmail.com\",\n    \"scopes\": \"<string>\",\n    \"description\": \"Usuário do João do financeiro\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/users",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users"
+									]
+								}
+							},
+							"status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"code\": 422,\n \"errors\": [\n  {\n   \"type\": \"validation_error\",\n   \"property\": \"dueDate\",\n   \"message\": \"campo dueDate deve ser uma data válida\"\n  },\n  {\n   \"type\": \"validation_error\",\n   \"property\": \"dueDate\",\n   \"message\": \"campo dueDate deve ser uma data válida\"\n  }\n ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Listar usuários cadastrados",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJraWQiOiJKVGlUdEZnTnFrbUFuemMrXC9vNXRvSkhDdVVcL1ZUZWZ0bEVYWlJhZlY2RTQ9IiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiI1aXI0b2c3OGM4cmI3OXJvYnBkbTk5YjY4bSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXBpLWFjY2Vzc1wvY29tcGFueS5hZG1pbiIsImF1dGhfdGltZSI6MTYzODUzMzk5MywiaXNzIjoiaHR0cHM6XC9cL2NvZ25pdG8taWRwLnVzLWVhc3QtMS5hbWF6b25hd3MuY29tXC91cy1lYXN0LTFfcHFURGdtbE1qIiwiZXhwIjoxNjM4NTM3NTkzLCJpYXQiOjE2Mzg1MzM5OTMsInZlcnNpb24iOjIsImp0aSI6IjZmMGVhNDczLWYyOWEtNGFjNS05NWI5LTdkMzE4YTQwYzczNiIsImNsaWVudF9pZCI6IjVpcjRvZzc4YzhyYjc5cm9icGRtOTliNjhtIn0.fJuMLxkvHwjInfxyQocWZ0RHSlt5wGFDcp1DYXkP5o8WAFvVHgkgLzq6nhaya4PCqRP0Q3YCYy3RVipEfbOP9TBgXMmoHdOCskmMlyGZBdZEubFUoJ6LUGa2llXGzwwEjbre6ocv1dz5ZAFQNY2WiZakNwI9DJ10UpSzqRSJ8Q2_kzZeIRS6-jRYgXRMk4eEKFB5g2p4DPgOdU1xvFZzoi3lMZ-9J-61H1_5VQIb92eKeehwALC3wMFb_babDe1_P2XklKVMZpGaR-PUZvBc5H5bRZNc-H5bgtYgk0S2-4TG7C46U3TarQ7T_mCyh64BjCaWNhzA-vUSCOpWbNoYWw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://pix.tecnospeed.com.br/sandbox/users",
+							"protocol": "https",
+							"host": [
+								"pix",
+								"tecnospeed",
+								"com",
+								"br"
+							],
+							"path": [
+								"sandbox",
+								"users"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Untitled Example",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: oauth2",
+										"key": "Authorization",
+										"value": "<token>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/users",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users"
+									]
+								}
+							},
+							"status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"code\": 422,\n \"errors\": [\n  {\n   \"type\": \"validation_error\",\n   \"property\": \"dueDate\",\n   \"message\": \"campo dueDate deve ser uma data válida\"\n  },\n  {\n   \"type\": \"validation_error\",\n   \"property\": \"dueDate\",\n   \"message\": \"campo dueDate deve ser uma data válida\"\n  }\n ]\n}"
+						},
+						{
+							"name": "Untitled Example",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: oauth2",
+										"key": "Authorization",
+										"value": "<token>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/users",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n {\n  \"surrogateKey\": \"adipisicing ut officia\",\n  \"name\": \"laborum in nisi\",\n  \"username\": \"quis proident\",\n  \"description\": \"officia incididunt\",\n  \"email\": \"exercitation officia aute\",\n  \"scopes\": [\n   \"eiusmod laborum aliquip pariatur\",\n   \"dolor Exce\"\n  ],\n  \"role\": \"qui non velit sunt\",\n  \"status\": \"exercitation adipisicing\",\n  \"createdAt\": \"1972-05-14T23:58:55.180Z\",\n  \"updatedAt\": \"1965-01-23T13:56:35.256Z\"\n },\n {\n  \"surrogateKey\": \"proident eu dolore cupidatat\",\n  \"name\": \"elit dolor eu\",\n  \"username\": \"sed incididunt\",\n  \"description\": \"officia sunt cupida\",\n  \"email\": \"dolor ad Duis\",\n  \"scopes\": [\n   \"ex\",\n   \"ipsum incididunt elit\"\n  ],\n  \"role\": \"est tempor\",\n  \"status\": \"veniam officia ea anim\",\n  \"createdAt\": \"1966-04-20T15:33:04.712Z\",\n  \"updatedAt\": \"2011-09-09T16:57:27.376Z\"\n }\n]"
+						}
+					]
+				},
+				{
+					"name": "Desabilitar usuário",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJraWQiOiJKVGlUdEZnTnFrbUFuemMrXC9vNXRvSkhDdVVcL1ZUZWZ0bEVYWlJhZlY2RTQ9IiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiI1aXI0b2c3OGM4cmI3OXJvYnBkbTk5YjY4bSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXBpLWFjY2Vzc1wvY29tcGFueS5hZG1pbiIsImF1dGhfdGltZSI6MTYzODUzMzk5MywiaXNzIjoiaHR0cHM6XC9cL2NvZ25pdG8taWRwLnVzLWVhc3QtMS5hbWF6b25hd3MuY29tXC91cy1lYXN0LTFfcHFURGdtbE1qIiwiZXhwIjoxNjM4NTM3NTkzLCJpYXQiOjE2Mzg1MzM5OTMsInZlcnNpb24iOjIsImp0aSI6IjZmMGVhNDczLWYyOWEtNGFjNS05NWI5LTdkMzE4YTQwYzczNiIsImNsaWVudF9pZCI6IjVpcjRvZzc4YzhyYjc5cm9icGRtOTliNjhtIn0.fJuMLxkvHwjInfxyQocWZ0RHSlt5wGFDcp1DYXkP5o8WAFvVHgkgLzq6nhaya4PCqRP0Q3YCYy3RVipEfbOP9TBgXMmoHdOCskmMlyGZBdZEubFUoJ6LUGa2llXGzwwEjbre6ocv1dz5ZAFQNY2WiZakNwI9DJ10UpSzqRSJ8Q2_kzZeIRS6-jRYgXRMk4eEKFB5g2p4DPgOdU1xvFZzoi3lMZ-9J-61H1_5VQIb92eKeehwALC3wMFb_babDe1_P2XklKVMZpGaR-PUZvBc5H5bRZNc-H5bgtYgk0S2-4TG7C46U3TarQ7T_mCyh64BjCaWNhzA-vUSCOpWbNoYWw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://pix.tecnospeed.com.br/sandbox/users",
+							"protocol": "https",
+							"host": [
+								"pix",
+								"tecnospeed",
+								"com",
+								"br"
+							],
+							"path": [
+								"sandbox",
+								"users"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Untitled Example",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: oauth2",
+										"key": "Authorization",
+										"value": "<token>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/users",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Untitled Example",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: oauth2",
+										"key": "Authorization",
+										"value": "<token>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/users",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"code\": -58176456.51218739,\n \"message\": \"voluptate sit et do\"\n}"
+						}
+					]
+				},
+				{
+					"name": "User Controller Update User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJraWQiOiJKVGlUdEZnTnFrbUFuemMrXC9vNXRvSkhDdVVcL1ZUZWZ0bEVYWlJhZlY2RTQ9IiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiI1aXI0b2c3OGM4cmI3OXJvYnBkbTk5YjY4bSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXBpLWFjY2Vzc1wvY29tcGFueS5hZG1pbiIsImF1dGhfdGltZSI6MTYzODUzMzk5MywiaXNzIjoiaHR0cHM6XC9cL2NvZ25pdG8taWRwLnVzLWVhc3QtMS5hbWF6b25hd3MuY29tXC91cy1lYXN0LTFfcHFURGdtbE1qIiwiZXhwIjoxNjM4NTM3NTkzLCJpYXQiOjE2Mzg1MzM5OTMsInZlcnNpb24iOjIsImp0aSI6IjZmMGVhNDczLWYyOWEtNGFjNS05NWI5LTdkMzE4YTQwYzczNiIsImNsaWVudF9pZCI6IjVpcjRvZzc4YzhyYjc5cm9icGRtOTliNjhtIn0.fJuMLxkvHwjInfxyQocWZ0RHSlt5wGFDcp1DYXkP5o8WAFvVHgkgLzq6nhaya4PCqRP0Q3YCYy3RVipEfbOP9TBgXMmoHdOCskmMlyGZBdZEubFUoJ6LUGa2llXGzwwEjbre6ocv1dz5ZAFQNY2WiZakNwI9DJ10UpSzqRSJ8Q2_kzZeIRS6-jRYgXRMk4eEKFB5g2p4DPgOdU1xvFZzoi3lMZ-9J-61H1_5VQIb92eKeehwALC3wMFb_babDe1_P2XklKVMZpGaR-PUZvBc5H5bRZNc-H5bgtYgk0S2-4TG7C46U3TarQ7T_mCyh64BjCaWNhzA-vUSCOpWbNoYWw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"João da Silva\",\n  \"email\": \"joao.silva@teste.com\"\n}"
+						},
+						"url": {
+							"raw": "https://pix.tecnospeed.com.br/sandbox/users/baffd98d-e4ad-4d93-bc5d-552b2dbeaaa1",
+							"protocol": "https",
+							"host": [
+								"pix",
+								"tecnospeed",
+								"com",
+								"br"
+							],
+							"path": [
+								"sandbox",
+								"users",
+								"baffd98d-e4ad-4d93-bc5d-552b2dbeaaa1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Untitled Example",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"<string>\",\n    \"email\": \"<string>\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/users/:userId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"users",
+										":userId"
+									],
+									"variable": [
+										{
+											"key": "userId"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "webhook",
+			"item": [
+				{
+					"name": "Listar configuração de webhook",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJraWQiOiJKVGlUdEZnTnFrbUFuemMrXC9vNXRvSkhDdVVcL1ZUZWZ0bEVYWlJhZlY2RTQ9IiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiI1aXI0b2c3OGM4cmI3OXJvYnBkbTk5YjY4bSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXBpLWFjY2Vzc1wvY29tcGFueS5hZG1pbiIsImF1dGhfdGltZSI6MTYzODUzMzk5MywiaXNzIjoiaHR0cHM6XC9cL2NvZ25pdG8taWRwLnVzLWVhc3QtMS5hbWF6b25hd3MuY29tXC91cy1lYXN0LTFfcHFURGdtbE1qIiwiZXhwIjoxNjM4NTM3NTkzLCJpYXQiOjE2Mzg1MzM5OTMsInZlcnNpb24iOjIsImp0aSI6IjZmMGVhNDczLWYyOWEtNGFjNS05NWI5LTdkMzE4YTQwYzczNiIsImNsaWVudF9pZCI6IjVpcjRvZzc4YzhyYjc5cm9icGRtOTliNjhtIn0.fJuMLxkvHwjInfxyQocWZ0RHSlt5wGFDcp1DYXkP5o8WAFvVHgkgLzq6nhaya4PCqRP0Q3YCYy3RVipEfbOP9TBgXMmoHdOCskmMlyGZBdZEubFUoJ6LUGa2llXGzwwEjbre6ocv1dz5ZAFQNY2WiZakNwI9DJ10UpSzqRSJ8Q2_kzZeIRS6-jRYgXRMk4eEKFB5g2p4DPgOdU1xvFZzoi3lMZ-9J-61H1_5VQIb92eKeehwALC3wMFb_babDe1_P2XklKVMZpGaR-PUZvBc5H5bRZNc-H5bgtYgk0S2-4TG7C46U3TarQ7T_mCyh64BjCaWNhzA-vUSCOpWbNoYWw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://pix.tecnospeed.com.br/sandbox/webhook",
+							"protocol": "https",
+							"host": [
+								"pix",
+								"tecnospeed",
+								"com",
+								"br"
+							],
+							"path": [
+								"sandbox",
+								"webhook"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Untitled Example",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: oauth2",
+										"key": "Authorization",
+										"value": "<token>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/webhook",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"webhook"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"code\": -58176456.51218739,\n \"message\": \"voluptate sit et do\"\n}"
+						},
+						{
+							"name": "Untitled Example",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: oauth2",
+										"key": "Authorization",
+										"value": "<token>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/webhook",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"webhook"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"surrogateKey\": \"adipisicing ut\",\n \"onEvents\": [\n  \"in id qui\",\n  \"sit nulla ullamco sunt\"\n ],\n \"method\": \"fugiat mollit occaecat officia\",\n \"url\": \"en\",\n \"createdAt\": \"1954-01-25T00:50:44.734Z\",\n \"updatedAt\": \"1997-02-07T02:34:03.651Z\",\n \"headers\": {}\n}"
+						}
+					]
+				},
+				{
+					"name": "Cadastrar configuração de webhook",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJraWQiOiJKVGlUdEZnTnFrbUFuemMrXC9vNXRvSkhDdVVcL1ZUZWZ0bEVYWlJhZlY2RTQ9IiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiI1aXI0b2c3OGM4cmI3OXJvYnBkbTk5YjY4bSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXBpLWFjY2Vzc1wvY29tcGFueS5hZG1pbiIsImF1dGhfdGltZSI6MTYzODUzMzk5MywiaXNzIjoiaHR0cHM6XC9cL2NvZ25pdG8taWRwLnVzLWVhc3QtMS5hbWF6b25hd3MuY29tXC91cy1lYXN0LTFfcHFURGdtbE1qIiwiZXhwIjoxNjM4NTM3NTkzLCJpYXQiOjE2Mzg1MzM5OTMsInZlcnNpb24iOjIsImp0aSI6IjZmMGVhNDczLWYyOWEtNGFjNS05NWI5LTdkMzE4YTQwYzczNiIsImNsaWVudF9pZCI6IjVpcjRvZzc4YzhyYjc5cm9icGRtOTliNjhtIn0.fJuMLxkvHwjInfxyQocWZ0RHSlt5wGFDcp1DYXkP5o8WAFvVHgkgLzq6nhaya4PCqRP0Q3YCYy3RVipEfbOP9TBgXMmoHdOCskmMlyGZBdZEubFUoJ6LUGa2llXGzwwEjbre6ocv1dz5ZAFQNY2WiZakNwI9DJ10UpSzqRSJ8Q2_kzZeIRS6-jRYgXRMk4eEKFB5g2p4DPgOdU1xvFZzoi3lMZ-9J-61H1_5VQIb92eKeehwALC3wMFb_babDe1_P2XklKVMZpGaR-PUZvBc5H5bRZNc-H5bgtYgk0S2-4TG7C46U3TarQ7T_mCyh64BjCaWNhzA-vUSCOpWbNoYWw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"onEvents\": [\n    \"PIX_SUCCESSFUL\"\n  ],\n  \"method\": \"POST\",\n  \"url\": \"http://minhaapi.com/callback\",\n  \"headers\": {\n    \"Content-type\": \"application/json\",\n    \"Authorization\": \"Basic bWV1IHNlZ3JlZG8=\"\n  }\n}"
+						},
+						"url": {
+							"raw": "https://pix.tecnospeed.com.br/sandbox/webhook",
+							"protocol": "https",
+							"host": [
+								"pix",
+								"tecnospeed",
+								"com",
+								"br"
+							],
+							"path": [
+								"sandbox",
+								"webhook"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Untitled Example",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: oauth2",
+										"key": "Authorization",
+										"value": "<token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"onEvents\": [\n        \"<number>\",\n        \"<number>\"\n    ],\n    \"url\": \"http://minhaapi.com/callback\",\n    \"method\": \"POST\",\n    \"headers\": {\n        \"Content-type\": \"application/json\",\n        \"Authorization\": \"Basic bWV1IHNlZ3JlZG8=\"\n    }\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/webhook",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"webhook"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"surrogateKey\": \"velit ut Excepteur\",\n \"onEvents\": [\n  \"do in consectetur\",\n  \"minim\"\n ],\n \"method\": \"sunt et deserunt\",\n \"url\": \"incididunt dolor cupidatat sunt est\",\n \"createdAt\": \"1947-08-09T07:20:35.567Z\",\n \"updatedAt\": \"1965-12-20T03:59:30.567Z\",\n \"headers\": {}\n}"
+						},
+						{
+							"name": "Untitled Example",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: oauth2",
+										"key": "Authorization",
+										"value": "<token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"onEvents\": [\n        \"<number>\",\n        \"<number>\"\n    ],\n    \"url\": \"http://minhaapi.com/callback\",\n    \"method\": \"POST\",\n    \"headers\": {\n        \"Content-type\": \"application/json\",\n        \"Authorization\": \"Basic bWV1IHNlZ3JlZG8=\"\n    }\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/webhook",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"webhook"
+									]
+								}
+							},
+							"status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"code\": 422,\n \"errors\": [\n  {\n   \"type\": \"validation_error\",\n   \"property\": \"dueDate\",\n   \"message\": \"campo dueDate deve ser uma data válida\"\n  },\n  {\n   \"type\": \"validation_error\",\n   \"property\": \"dueDate\",\n   \"message\": \"campo dueDate deve ser uma data válida\"\n  }\n ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Atualizar configuração de webhook",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJraWQiOiJKVGlUdEZnTnFrbUFuemMrXC9vNXRvSkhDdVVcL1ZUZWZ0bEVYWlJhZlY2RTQ9IiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiI1aXI0b2c3OGM4cmI3OXJvYnBkbTk5YjY4bSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXBpLWFjY2Vzc1wvY29tcGFueS5hZG1pbiIsImF1dGhfdGltZSI6MTYzODUzMzk5MywiaXNzIjoiaHR0cHM6XC9cL2NvZ25pdG8taWRwLnVzLWVhc3QtMS5hbWF6b25hd3MuY29tXC91cy1lYXN0LTFfcHFURGdtbE1qIiwiZXhwIjoxNjM4NTM3NTkzLCJpYXQiOjE2Mzg1MzM5OTMsInZlcnNpb24iOjIsImp0aSI6IjZmMGVhNDczLWYyOWEtNGFjNS05NWI5LTdkMzE4YTQwYzczNiIsImNsaWVudF9pZCI6IjVpcjRvZzc4YzhyYjc5cm9icGRtOTliNjhtIn0.fJuMLxkvHwjInfxyQocWZ0RHSlt5wGFDcp1DYXkP5o8WAFvVHgkgLzq6nhaya4PCqRP0Q3YCYy3RVipEfbOP9TBgXMmoHdOCskmMlyGZBdZEubFUoJ6LUGa2llXGzwwEjbre6ocv1dz5ZAFQNY2WiZakNwI9DJ10UpSzqRSJ8Q2_kzZeIRS6-jRYgXRMk4eEKFB5g2p4DPgOdU1xvFZzoi3lMZ-9J-61H1_5VQIb92eKeehwALC3wMFb_babDe1_P2XklKVMZpGaR-PUZvBc5H5bRZNc-H5bgtYgk0S2-4TG7C46U3TarQ7T_mCyh64BjCaWNhzA-vUSCOpWbNoYWw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"onEvents\": [\n    \"PIX_SUCCESSFUL\"\n  ],\n  \"method\": \"POST\",\n  \"url\": \"http://minhaapi.com/callback\",\n  \"headers\": {\n    \"Content-type\": \"application/json\",\n    \"Authorization\": \"Basic bWV1IHNlZ3JlZG8=\"\n  }\n}"
+						},
+						"url": {
+							"raw": "https://pix.tecnospeed.com.br/sandbox/webhook",
+							"protocol": "https",
+							"host": [
+								"pix",
+								"tecnospeed",
+								"com",
+								"br"
+							],
+							"path": [
+								"sandbox",
+								"webhook"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Untitled Example",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: oauth2",
+										"key": "Authorization",
+										"value": "<token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"onEvents\": [\n        \"<number>\",\n        \"<number>\"\n    ],\n    \"url\": \"http://minhaapi.com/callback\",\n    \"method\": \"POST\",\n    \"headers\": {\n        \"Content-type\": \"application/json\",\n        \"Authorization\": \"Basic bWV1IHNlZ3JlZG8=\"\n    }\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/webhook",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"webhook"
+									]
+								}
+							},
+							"status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"code\": 422,\n \"errors\": [\n  {\n   \"type\": \"validation_error\",\n   \"property\": \"dueDate\",\n   \"message\": \"campo dueDate deve ser uma data válida\"\n  },\n  {\n   \"type\": \"validation_error\",\n   \"property\": \"dueDate\",\n   \"message\": \"campo dueDate deve ser uma data válida\"\n  }\n ]\n}"
+						},
+						{
+							"name": "Untitled Example",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: oauth2",
+										"key": "Authorization",
+										"value": "<token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"onEvents\": [\n        \"<number>\",\n        \"<number>\"\n    ],\n    \"url\": \"http://minhaapi.com/callback\",\n    \"method\": \"POST\",\n    \"headers\": {\n        \"Content-type\": \"application/json\",\n        \"Authorization\": \"Basic bWV1IHNlZ3JlZG8=\"\n    }\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/webhook",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"webhook"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"surrogateKey\": \"velit ut Excepteur\",\n \"onEvents\": [\n  \"do in consectetur\",\n  \"minim\"\n ],\n \"method\": \"sunt et deserunt\",\n \"url\": \"incididunt dolor cupidatat sunt est\",\n \"createdAt\": \"1947-08-09T07:20:35.567Z\",\n \"updatedAt\": \"1965-12-20T03:59:30.567Z\",\n \"headers\": {}\n}"
+						}
+					]
+				},
+				{
+					"name": "Deletar configuração de webhook",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJraWQiOiJKVGlUdEZnTnFrbUFuemMrXC9vNXRvSkhDdVVcL1ZUZWZ0bEVYWlJhZlY2RTQ9IiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiI1aXI0b2c3OGM4cmI3OXJvYnBkbTk5YjY4bSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXBpLWFjY2Vzc1wvY29tcGFueS5hZG1pbiIsImF1dGhfdGltZSI6MTYzODUzMzk5MywiaXNzIjoiaHR0cHM6XC9cL2NvZ25pdG8taWRwLnVzLWVhc3QtMS5hbWF6b25hd3MuY29tXC91cy1lYXN0LTFfcHFURGdtbE1qIiwiZXhwIjoxNjM4NTM3NTkzLCJpYXQiOjE2Mzg1MzM5OTMsInZlcnNpb24iOjIsImp0aSI6IjZmMGVhNDczLWYyOWEtNGFjNS05NWI5LTdkMzE4YTQwYzczNiIsImNsaWVudF9pZCI6IjVpcjRvZzc4YzhyYjc5cm9icGRtOTliNjhtIn0.fJuMLxkvHwjInfxyQocWZ0RHSlt5wGFDcp1DYXkP5o8WAFvVHgkgLzq6nhaya4PCqRP0Q3YCYy3RVipEfbOP9TBgXMmoHdOCskmMlyGZBdZEubFUoJ6LUGa2llXGzwwEjbre6ocv1dz5ZAFQNY2WiZakNwI9DJ10UpSzqRSJ8Q2_kzZeIRS6-jRYgXRMk4eEKFB5g2p4DPgOdU1xvFZzoi3lMZ-9J-61H1_5VQIb92eKeehwALC3wMFb_babDe1_P2XklKVMZpGaR-PUZvBc5H5bRZNc-H5bgtYgk0S2-4TG7C46U3TarQ7T_mCyh64BjCaWNhzA-vUSCOpWbNoYWw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://pix.tecnospeed.com.br/sandbox/webhook",
+							"protocol": "https",
+							"host": [
+								"pix",
+								"tecnospeed",
+								"com",
+								"br"
+							],
+							"path": [
+								"sandbox",
+								"webhook"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Untitled Example",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: oauth2",
+										"key": "Authorization",
+										"value": "<token>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/webhook",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"webhook"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Untitled Example",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: oauth2",
+										"key": "Authorization",
+										"value": "<token>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/webhook",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"webhook"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"code\": -58176456.51218739,\n \"message\": \"voluptate sit et do\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Pix - Cobrança imediata",
+			"item": [
+				{
+					"name": "Criar PIX dinâmico",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJraWQiOiJKVGlUdEZnTnFrbUFuemMrXC9vNXRvSkhDdVVcL1ZUZWZ0bEVYWlJhZlY2RTQ9IiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiI1aXI0b2c3OGM4cmI3OXJvYnBkbTk5YjY4bSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXBpLWFjY2Vzc1wvY29tcGFueS5hZG1pbiIsImF1dGhfdGltZSI6MTYzODUzMzk5MywiaXNzIjoiaHR0cHM6XC9cL2NvZ25pdG8taWRwLnVzLWVhc3QtMS5hbWF6b25hd3MuY29tXC91cy1lYXN0LTFfcHFURGdtbE1qIiwiZXhwIjoxNjM4NTM3NTkzLCJpYXQiOjE2Mzg1MzM5OTMsInZlcnNpb24iOjIsImp0aSI6IjZmMGVhNDczLWYyOWEtNGFjNS05NWI5LTdkMzE4YTQwYzczNiIsImNsaWVudF9pZCI6IjVpcjRvZzc4YzhyYjc5cm9icGRtOTliNjhtIn0.fJuMLxkvHwjInfxyQocWZ0RHSlt5wGFDcp1DYXkP5o8WAFvVHgkgLzq6nhaya4PCqRP0Q3YCYy3RVipEfbOP9TBgXMmoHdOCskmMlyGZBdZEubFUoJ6LUGa2llXGzwwEjbre6ocv1dz5ZAFQNY2WiZakNwI9DJ10UpSzqRSJ8Q2_kzZeIRS6-jRYgXRMk4eEKFB5g2p4DPgOdU1xvFZzoi3lMZ-9J-61H1_5VQIb92eKeehwALC3wMFb_babDe1_P2XklKVMZpGaR-PUZvBc5H5bRZNc-H5bgtYgk0S2-4TG7C46U3TarQ7T_mCyh64BjCaWNhzA-vUSCOpWbNoYWw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"accountId\": \"0e001b8f-64a5-481a-a564-14b823bf836c\",\n  \"description\": \"Cobrança relativa a compra do dia 01-01-2021\",\n  \"tags\": [\n    \"compra\",\n    \"pix\",\n    \"2021\"\n  ],\n  \"amount\": 120,\n  \"duration\": 123123,\n  \"payerName\": \"João da Silva\",\n  \"payerCpfCnpj\": \"01001001000113\",\n  \"aditionalInformation\": [\n    {\n      \"name\": \"loja\",\n      \"value\": \"Loja de teste\"\n    }\n  ]\n}"
+						},
+						"url": {
+							"raw": "https://pix.tecnospeed.com.br/sandbox/pix/dynamic",
+							"protocol": "https",
+							"host": [
+								"pix",
+								"tecnospeed",
+								"com",
+								"br"
+							],
+							"path": [
+								"sandbox",
+								"pix",
+								"dynamic"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Untitled Example",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: oauth2",
+										"key": "Authorization",
+										"value": "<token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"accountId\": \"0e001b8f-64a5-481a-a564-14b823bf836c\",\n    \"amount\": 120,\n    \"payerName\": \"João da Silva\",\n    \"payerCpfCnpj\": \"01001001000113\",\n    \"transactionId\": \"<string>\",\n    \"description\": \"Cobrança relativa a compra do dia 01-01-2021\",\n    \"tags\": [\n        \"<string>\",\n        \"<string>\"\n    ],\n    \"discountAmount\": 10,\n    \"interestAmount\": 1,\n    \"fineAmount\": 1,\n    \"aditionalInformation\": {\n        \"loja\": \"Loja de teste\"\n    },\n    \"duration\": 123123,\n    \"discountDate\": \"<dateTime>\",\n    \"dueDate\": \"<dateTime>\",\n    \"interestDate\": \"<dateTime>\",\n    \"fineDate\": \"<dateTime>\",\n    \"acceptAfterExpiration\": true\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/pix/dynamic",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"pix",
+										"dynamic"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"surrogateKey\": \"eu\",\n \"kind\": \"dolo\",\n \"transactionId\": \"enim ipsum\",\n \"status\": \"quis sed offici\",\n \"qrcodeLocation\": \"deserunt ad dolore consequat eu\",\n \"amount\": -37115177.1034198,\n \"discountAmount\": -37239135.78323983,\n \"interestAmount\": -65486283.66859819,\n \"fineAmount\": 97358935.73464713,\n \"dueDate\": \"1956-11-05T16:45:30.228Z\",\n \"aditionalInformation\": {},\n \"duration\": 18381281.13973601,\n \"acceptAfterExpiration\": true,\n \"reason\": \"eiusmod veniam pariatur non\",\n \"revision\": 90243944.92101383,\n \"payerName\": \"enim esse\",\n \"payerCpfCnpj\": \"incididunt veniam do officia\",\n \"discountDate\": \"2006-01-03T00:12:54.279Z\",\n \"interestDate\": \"1988-10-19T18:58:00.919Z\",\n \"fineDate\": \"1999-09-05T15:50:31.993Z\",\n \"tags\": [\n  \"aliquip magna consectetur\",\n  \"labore occaecat\"\n ],\n \"createdAt\": \"1962-07-21T00:53:06.295Z\",\n \"updatedAt\": \"1992-03-30T11:17:59.503Z\",\n \"description\": \"consectetur fugiat\"\n}"
+						},
+						{
+							"name": "Untitled Example",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: oauth2",
+										"key": "Authorization",
+										"value": "<token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"accountId\": \"0e001b8f-64a5-481a-a564-14b823bf836c\",\n    \"amount\": 120,\n    \"payerName\": \"João da Silva\",\n    \"payerCpfCnpj\": \"01001001000113\",\n    \"transactionId\": \"<string>\",\n    \"description\": \"Cobrança relativa a compra do dia 01-01-2021\",\n    \"tags\": [\n        \"<string>\",\n        \"<string>\"\n    ],\n    \"discountAmount\": 10,\n    \"interestAmount\": 1,\n    \"fineAmount\": 1,\n    \"aditionalInformation\": {\n        \"loja\": \"Loja de teste\"\n    },\n    \"duration\": 123123,\n    \"discountDate\": \"<dateTime>\",\n    \"dueDate\": \"<dateTime>\",\n    \"interestDate\": \"<dateTime>\",\n    \"fineDate\": \"<dateTime>\",\n    \"acceptAfterExpiration\": true\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/pix/dynamic",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"pix",
+										"dynamic"
+									]
+								}
+							},
+							"status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"code\": 422,\n \"errors\": [\n  {\n   \"type\": \"validation_error\",\n   \"property\": \"dueDate\",\n   \"message\": \"campo dueDate deve ser uma data válida\"\n  },\n  {\n   \"type\": \"validation_error\",\n   \"property\": \"dueDate\",\n   \"message\": \"campo dueDate deve ser uma data válida\"\n  }\n ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Listar PIX",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJraWQiOiJKVGlUdEZnTnFrbUFuemMrXC9vNXRvSkhDdVVcL1ZUZWZ0bEVYWlJhZlY2RTQ9IiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiI1aXI0b2c3OGM4cmI3OXJvYnBkbTk5YjY4bSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXBpLWFjY2Vzc1wvY29tcGFueS5hZG1pbiIsImF1dGhfdGltZSI6MTYzODUzMzk5MywiaXNzIjoiaHR0cHM6XC9cL2NvZ25pdG8taWRwLnVzLWVhc3QtMS5hbWF6b25hd3MuY29tXC91cy1lYXN0LTFfcHFURGdtbE1qIiwiZXhwIjoxNjM4NTM3NTkzLCJpYXQiOjE2Mzg1MzM5OTMsInZlcnNpb24iOjIsImp0aSI6IjZmMGVhNDczLWYyOWEtNGFjNS05NWI5LTdkMzE4YTQwYzczNiIsImNsaWVudF9pZCI6IjVpcjRvZzc4YzhyYjc5cm9icGRtOTliNjhtIn0.fJuMLxkvHwjInfxyQocWZ0RHSlt5wGFDcp1DYXkP5o8WAFvVHgkgLzq6nhaya4PCqRP0Q3YCYy3RVipEfbOP9TBgXMmoHdOCskmMlyGZBdZEubFUoJ6LUGa2llXGzwwEjbre6ocv1dz5ZAFQNY2WiZakNwI9DJ10UpSzqRSJ8Q2_kzZeIRS6-jRYgXRMk4eEKFB5g2p4DPgOdU1xvFZzoi3lMZ-9J-61H1_5VQIb92eKeehwALC3wMFb_babDe1_P2XklKVMZpGaR-PUZvBc5H5bRZNc-H5bgtYgk0S2-4TG7C46U3TarQ7T_mCyh64BjCaWNhzA-vUSCOpWbNoYWw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://pix.tecnospeed.com.br/sandbox/pix/query?betweenDateStart=2021-08-01&betweenDateEnd=2021-08-31",
+							"protocol": "https",
+							"host": [
+								"pix",
+								"tecnospeed",
+								"com",
+								"br"
+							],
+							"path": [
+								"sandbox",
+								"pix",
+								"query"
+							],
+							"query": [
+								{
+									"key": "betweenDateStart",
+									"value": "2021-08-01"
+								},
+								{
+									"key": "betweenDateEnd",
+									"value": "2021-08-31"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Untitled Example",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: oauth2",
+										"key": "Authorization",
+										"value": "<token>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/pix",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"pix"
+									]
+								}
+							},
+							"status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"code\": 422,\n \"errors\": [\n  {\n   \"type\": \"validation_error\",\n   \"property\": \"dueDate\",\n   \"message\": \"campo dueDate deve ser uma data válida\"\n  },\n  {\n   \"type\": \"validation_error\",\n   \"property\": \"dueDate\",\n   \"message\": \"campo dueDate deve ser uma data válida\"\n  }\n ]\n}"
+						},
+						{
+							"name": "Untitled Example",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: oauth2",
+										"key": "Authorization",
+										"value": "<token>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/pix",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"pix"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"surrogateKey\": \"sint Duis\",\n \"kind\": \"culpa cillum\",\n \"transactionId\": \"anim est quis minim\",\n \"status\": \"cillum aliquip Duis dese\",\n \"qrcodeLocation\": \"in reprehenderit Ut\",\n \"amount\": -81384735.64502288,\n \"discountAmount\": -22440082.24953124,\n \"interestAmount\": -43663615.36250212,\n \"fineAmount\": -89471758.96343577,\n \"dueDate\": \"2015-06-19T14:52:49.150Z\",\n \"aditionalInformation\": {},\n \"duration\": -77718008.23342985,\n \"acceptAfterExpiration\": true,\n \"reason\": \"irure commodo reprehenderit aliquip\",\n \"revision\": -68049864.92976272,\n \"payerName\": \"proident reprehende\",\n \"payerCpfCnpj\": \"Ut minim ut\",\n \"discountDate\": \"1994-08-19T01:44:55.067Z\",\n \"interestDate\": \"1957-11-01T08:16:35.385Z\",\n \"fineDate\": \"1960-08-08T22:13:25.969Z\",\n \"tags\": [\n  \"reprehenderit nulla ut aliqua pariatur\",\n  \"ipsum\"\n ],\n \"createdAt\": \"1991-03-20T21:05:06.037Z\",\n \"updatedAt\": \"2006-05-16T11:07:28.586Z\",\n \"description\": \"exercitation mollit ipsum\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Listar PIX por ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJraWQiOiJKVGlUdEZnTnFrbUFuemMrXC9vNXRvSkhDdVVcL1ZUZWZ0bEVYWlJhZlY2RTQ9IiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiI1aXI0b2c3OGM4cmI3OXJvYnBkbTk5YjY4bSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXBpLWFjY2Vzc1wvY29tcGFueS5hZG1pbiIsImF1dGhfdGltZSI6MTYzODUzMzk5MywiaXNzIjoiaHR0cHM6XC9cL2NvZ25pdG8taWRwLnVzLWVhc3QtMS5hbWF6b25hd3MuY29tXC91cy1lYXN0LTFfcHFURGdtbE1qIiwiZXhwIjoxNjM4NTM3NTkzLCJpYXQiOjE2Mzg1MzM5OTMsInZlcnNpb24iOjIsImp0aSI6IjZmMGVhNDczLWYyOWEtNGFjNS05NWI5LTdkMzE4YTQwYzczNiIsImNsaWVudF9pZCI6IjVpcjRvZzc4YzhyYjc5cm9icGRtOTliNjhtIn0.fJuMLxkvHwjInfxyQocWZ0RHSlt5wGFDcp1DYXkP5o8WAFvVHgkgLzq6nhaya4PCqRP0Q3YCYy3RVipEfbOP9TBgXMmoHdOCskmMlyGZBdZEubFUoJ6LUGa2llXGzwwEjbre6ocv1dz5ZAFQNY2WiZakNwI9DJ10UpSzqRSJ8Q2_kzZeIRS6-jRYgXRMk4eEKFB5g2p4DPgOdU1xvFZzoi3lMZ-9J-61H1_5VQIb92eKeehwALC3wMFb_babDe1_P2XklKVMZpGaR-PUZvBc5H5bRZNc-H5bgtYgk0S2-4TG7C46U3TarQ7T_mCyh64BjCaWNhzA-vUSCOpWbNoYWw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://pix.tecnospeed.com.br/sandbox/pix/9f250eb5-3a37-4c45-ae8e-36d748ef8380",
+							"protocol": "https",
+							"host": [
+								"pix",
+								"tecnospeed",
+								"com",
+								"br"
+							],
+							"path": [
+								"sandbox",
+								"pix",
+								"9f250eb5-3a37-4c45-ae8e-36d748ef8380"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Untitled Example",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: oauth2",
+										"key": "Authorization",
+										"value": "<token>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/pix",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"pix"
+									]
+								}
+							},
+							"status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"code\": 422,\n \"errors\": [\n  {\n   \"type\": \"validation_error\",\n   \"property\": \"dueDate\",\n   \"message\": \"campo dueDate deve ser uma data válida\"\n  },\n  {\n   \"type\": \"validation_error\",\n   \"property\": \"dueDate\",\n   \"message\": \"campo dueDate deve ser uma data válida\"\n  }\n ]\n}"
+						},
+						{
+							"name": "Untitled Example",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: oauth2",
+										"key": "Authorization",
+										"value": "<token>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/pix",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"pix"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"surrogateKey\": \"sint Duis\",\n \"kind\": \"culpa cillum\",\n \"transactionId\": \"anim est quis minim\",\n \"status\": \"cillum aliquip Duis dese\",\n \"qrcodeLocation\": \"in reprehenderit Ut\",\n \"amount\": -81384735.64502288,\n \"discountAmount\": -22440082.24953124,\n \"interestAmount\": -43663615.36250212,\n \"fineAmount\": -89471758.96343577,\n \"dueDate\": \"2015-06-19T14:52:49.150Z\",\n \"aditionalInformation\": {},\n \"duration\": -77718008.23342985,\n \"acceptAfterExpiration\": true,\n \"reason\": \"irure commodo reprehenderit aliquip\",\n \"revision\": -68049864.92976272,\n \"payerName\": \"proident reprehende\",\n \"payerCpfCnpj\": \"Ut minim ut\",\n \"discountDate\": \"1994-08-19T01:44:55.067Z\",\n \"interestDate\": \"1957-11-01T08:16:35.385Z\",\n \"fineDate\": \"1960-08-08T22:13:25.969Z\",\n \"tags\": [\n  \"reprehenderit nulla ut aliqua pariatur\",\n  \"ipsum\"\n ],\n \"createdAt\": \"1991-03-20T21:05:06.037Z\",\n \"updatedAt\": \"2006-05-16T11:07:28.586Z\",\n \"description\": \"exercitation mollit ipsum\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Criar PIX dinâmico Copy",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJraWQiOiJKVGlUdEZnTnFrbUFuemMrXC9vNXRvSkhDdVVcL1ZUZWZ0bEVYWlJhZlY2RTQ9IiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiI1aXI0b2c3OGM4cmI3OXJvYnBkbTk5YjY4bSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXBpLWFjY2Vzc1wvY29tcGFueS5hZG1pbiIsImF1dGhfdGltZSI6MTYzODUzMzk5MywiaXNzIjoiaHR0cHM6XC9cL2NvZ25pdG8taWRwLnVzLWVhc3QtMS5hbWF6b25hd3MuY29tXC91cy1lYXN0LTFfcHFURGdtbE1qIiwiZXhwIjoxNjM4NTM3NTkzLCJpYXQiOjE2Mzg1MzM5OTMsInZlcnNpb24iOjIsImp0aSI6IjZmMGVhNDczLWYyOWEtNGFjNS05NWI5LTdkMzE4YTQwYzczNiIsImNsaWVudF9pZCI6IjVpcjRvZzc4YzhyYjc5cm9icGRtOTliNjhtIn0.fJuMLxkvHwjInfxyQocWZ0RHSlt5wGFDcp1DYXkP5o8WAFvVHgkgLzq6nhaya4PCqRP0Q3YCYy3RVipEfbOP9TBgXMmoHdOCskmMlyGZBdZEubFUoJ6LUGa2llXGzwwEjbre6ocv1dz5ZAFQNY2WiZakNwI9DJ10UpSzqRSJ8Q2_kzZeIRS6-jRYgXRMk4eEKFB5g2p4DPgOdU1xvFZzoi3lMZ-9J-61H1_5VQIb92eKeehwALC3wMFb_babDe1_P2XklKVMZpGaR-PUZvBc5H5bRZNc-H5bgtYgk0S2-4TG7C46U3TarQ7T_mCyh64BjCaWNhzA-vUSCOpWbNoYWw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"amount\": 132.9,\n  \"endToEndId\": \"E33112247202110191452sC35F6SbqpT\",\n  \"returnReasonCode\": \"BE08\",\n  \"adtionalInformation\": \"Devolução do valor pago\"\n}"
+						},
+						"url": {
+							"raw": "https://pix.tecnospeed.com.br/sandbox/pix/refund/9f250eb5-3a37-4c45-ae8e-36d748ef8380",
+							"protocol": "https",
+							"host": [
+								"pix",
+								"tecnospeed",
+								"com",
+								"br"
+							],
+							"path": [
+								"sandbox",
+								"pix",
+								"refund",
+								"9f250eb5-3a37-4c45-ae8e-36d748ef8380"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Untitled Example",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: oauth2",
+										"key": "Authorization",
+										"value": "<token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"accountId\": \"0e001b8f-64a5-481a-a564-14b823bf836c\",\n    \"amount\": 120,\n    \"payerName\": \"João da Silva\",\n    \"payerCpfCnpj\": \"01001001000113\",\n    \"transactionId\": \"<string>\",\n    \"description\": \"Cobrança relativa a compra do dia 01-01-2021\",\n    \"tags\": [\n        \"<string>\",\n        \"<string>\"\n    ],\n    \"discountAmount\": 10,\n    \"interestAmount\": 1,\n    \"fineAmount\": 1,\n    \"aditionalInformation\": {\n        \"loja\": \"Loja de teste\"\n    },\n    \"duration\": 123123,\n    \"discountDate\": \"<dateTime>\",\n    \"dueDate\": \"<dateTime>\",\n    \"interestDate\": \"<dateTime>\",\n    \"fineDate\": \"<dateTime>\",\n    \"acceptAfterExpiration\": true\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/pix/dynamic",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"pix",
+										"dynamic"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"surrogateKey\": \"eu\",\n \"kind\": \"dolo\",\n \"transactionId\": \"enim ipsum\",\n \"status\": \"quis sed offici\",\n \"qrcodeLocation\": \"deserunt ad dolore consequat eu\",\n \"amount\": -37115177.1034198,\n \"discountAmount\": -37239135.78323983,\n \"interestAmount\": -65486283.66859819,\n \"fineAmount\": 97358935.73464713,\n \"dueDate\": \"1956-11-05T16:45:30.228Z\",\n \"aditionalInformation\": {},\n \"duration\": 18381281.13973601,\n \"acceptAfterExpiration\": true,\n \"reason\": \"eiusmod veniam pariatur non\",\n \"revision\": 90243944.92101383,\n \"payerName\": \"enim esse\",\n \"payerCpfCnpj\": \"incididunt veniam do officia\",\n \"discountDate\": \"2006-01-03T00:12:54.279Z\",\n \"interestDate\": \"1988-10-19T18:58:00.919Z\",\n \"fineDate\": \"1999-09-05T15:50:31.993Z\",\n \"tags\": [\n  \"aliquip magna consectetur\",\n  \"labore occaecat\"\n ],\n \"createdAt\": \"1962-07-21T00:53:06.295Z\",\n \"updatedAt\": \"1992-03-30T11:17:59.503Z\",\n \"description\": \"consectetur fugiat\"\n}"
+						},
+						{
+							"name": "Untitled Example",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: oauth2",
+										"key": "Authorization",
+										"value": "<token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"accountId\": \"0e001b8f-64a5-481a-a564-14b823bf836c\",\n    \"amount\": 120,\n    \"payerName\": \"João da Silva\",\n    \"payerCpfCnpj\": \"01001001000113\",\n    \"transactionId\": \"<string>\",\n    \"description\": \"Cobrança relativa a compra do dia 01-01-2021\",\n    \"tags\": [\n        \"<string>\",\n        \"<string>\"\n    ],\n    \"discountAmount\": 10,\n    \"interestAmount\": 1,\n    \"fineAmount\": 1,\n    \"aditionalInformation\": {\n        \"loja\": \"Loja de teste\"\n    },\n    \"duration\": 123123,\n    \"discountDate\": \"<dateTime>\",\n    \"dueDate\": \"<dateTime>\",\n    \"interestDate\": \"<dateTime>\",\n    \"fineDate\": \"<dateTime>\",\n    \"acceptAfterExpiration\": true\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/pix/dynamic",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"pix",
+										"dynamic"
+									]
+								}
+							},
+							"status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"code\": 422,\n \"errors\": [\n  {\n   \"type\": \"validation_error\",\n   \"property\": \"dueDate\",\n   \"message\": \"campo dueDate deve ser uma data válida\"\n  },\n  {\n   \"type\": \"validation_error\",\n   \"property\": \"dueDate\",\n   \"message\": \"campo dueDate deve ser uma data válida\"\n  }\n ]\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Pix - Cobrança com vencimento",
+			"item": [
+				{
+					"name": "Criar PIX cobrança",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJraWQiOiJKVGlUdEZnTnFrbUFuemMrXC9vNXRvSkhDdVVcL1ZUZWZ0bEVYWlJhZlY2RTQ9IiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiI1aXI0b2c3OGM4cmI3OXJvYnBkbTk5YjY4bSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXBpLWFjY2Vzc1wvY29tcGFueS5hZG1pbiIsImF1dGhfdGltZSI6MTYzODUzMzk5MywiaXNzIjoiaHR0cHM6XC9cL2NvZ25pdG8taWRwLnVzLWVhc3QtMS5hbWF6b25hd3MuY29tXC91cy1lYXN0LTFfcHFURGdtbE1qIiwiZXhwIjoxNjM4NTM3NTkzLCJpYXQiOjE2Mzg1MzM5OTMsInZlcnNpb24iOjIsImp0aSI6IjZmMGVhNDczLWYyOWEtNGFjNS05NWI5LTdkMzE4YTQwYzczNiIsImNsaWVudF9pZCI6IjVpcjRvZzc4YzhyYjc5cm9icGRtOTliNjhtIn0.fJuMLxkvHwjInfxyQocWZ0RHSlt5wGFDcp1DYXkP5o8WAFvVHgkgLzq6nhaya4PCqRP0Q3YCYy3RVipEfbOP9TBgXMmoHdOCskmMlyGZBdZEubFUoJ6LUGa2llXGzwwEjbre6ocv1dz5ZAFQNY2WiZakNwI9DJ10UpSzqRSJ8Q2_kzZeIRS6-jRYgXRMk4eEKFB5g2p4DPgOdU1xvFZzoi3lMZ-9J-61H1_5VQIb92eKeehwALC3wMFb_babDe1_P2XklKVMZpGaR-PUZvBc5H5bRZNc-H5bgtYgk0S2-4TG7C46U3TarQ7T_mCyh64BjCaWNhzA-vUSCOpWbNoYWw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"accountId\": \"0e001b8f-64a5-481a-a564-14b823bf836c\",\n  \"description\": \"Cobrança relativa a compra do dia 01-01-2021\",\n  \"tags\": [\n    \"compra\",\n    \"pix\",\n    \"2021\"\n  ],\n  \"calendar\": {\n    \"dueDate\": \"2021-01-01\",\n    \"daysAfterDueDate\": 10\n  },\n  \"payer\": {\n    \"cpfCnpj\": \"01001001000113\",\n    \"name\": \"João da Silva\",\n    \"email\": \"email@email.com\",\n    \"street\": \"Av. Brasil, 100, Centro\",\n    \"city\": \"Maringá\",\n    \"state\": \"PR\",\n    \"zipcode\": \"87045170\"\n  },\n  \"value\": {\n    \"original\": 132.9,\n    \"fine\": {\n      \"modality\": 1,\n      \"valuePerc\": 10.99\n    },\n    \"interest\": {\n      \"modality\": 1,\n      \"valuePerc\": 10.99\n    },\n    \"reduction\": {\n      \"modality\": 1,\n      \"valuePerc\": 10.99\n    },\n    \"discount\": {\n      \"modality\": 1,\n      \"fixedDateDiscount\": [\n        {\n          \"date\": \"2021-01-01\",\n          \"valuePerc\": 10.99\n        }\n      ],\n      \"valuePerc\": 10.99\n    }\n  },\n  \"aditionalInformation\": [\n    {\n      \"name\": \"loja\",\n      \"value\": \"Loja de teste\"\n    }\n  ]\n}"
+						},
+						"url": {
+							"raw": "https://pix.tecnospeed.com.br/sandbox/pix/charge",
+							"protocol": "https",
+							"host": [
+								"pix",
+								"tecnospeed",
+								"com",
+								"br"
+							],
+							"path": [
+								"sandbox",
+								"pix",
+								"charge"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Untitled Example",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: oauth2",
+										"key": "Authorization",
+										"value": "<token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"accountId\": \"0e001b8f-64a5-481a-a564-14b823bf836c\",\n    \"amount\": 120,\n    \"payerName\": \"João da Silva\",\n    \"payerCpfCnpj\": \"01001001000113\",\n    \"transactionId\": \"<string>\",\n    \"description\": \"Cobrança relativa a compra do dia 01-01-2021\",\n    \"tags\": [\n        \"<string>\",\n        \"<string>\"\n    ],\n    \"discountAmount\": 10,\n    \"interestAmount\": 1,\n    \"fineAmount\": 1,\n    \"aditionalInformation\": {\n        \"loja\": \"Loja de teste\"\n    },\n    \"duration\": 123123,\n    \"discountDate\": \"<dateTime>\",\n    \"dueDate\": \"<dateTime>\",\n    \"interestDate\": \"<dateTime>\",\n    \"fineDate\": \"<dateTime>\",\n    \"acceptAfterExpiration\": true\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/pix/dynamic",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"pix",
+										"dynamic"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"surrogateKey\": \"eu\",\n \"kind\": \"dolo\",\n \"transactionId\": \"enim ipsum\",\n \"status\": \"quis sed offici\",\n \"qrcodeLocation\": \"deserunt ad dolore consequat eu\",\n \"amount\": -37115177.1034198,\n \"discountAmount\": -37239135.78323983,\n \"interestAmount\": -65486283.66859819,\n \"fineAmount\": 97358935.73464713,\n \"dueDate\": \"1956-11-05T16:45:30.228Z\",\n \"aditionalInformation\": {},\n \"duration\": 18381281.13973601,\n \"acceptAfterExpiration\": true,\n \"reason\": \"eiusmod veniam pariatur non\",\n \"revision\": 90243944.92101383,\n \"payerName\": \"enim esse\",\n \"payerCpfCnpj\": \"incididunt veniam do officia\",\n \"discountDate\": \"2006-01-03T00:12:54.279Z\",\n \"interestDate\": \"1988-10-19T18:58:00.919Z\",\n \"fineDate\": \"1999-09-05T15:50:31.993Z\",\n \"tags\": [\n  \"aliquip magna consectetur\",\n  \"labore occaecat\"\n ],\n \"createdAt\": \"1962-07-21T00:53:06.295Z\",\n \"updatedAt\": \"1992-03-30T11:17:59.503Z\",\n \"description\": \"consectetur fugiat\"\n}"
+						},
+						{
+							"name": "Untitled Example",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: oauth2",
+										"key": "Authorization",
+										"value": "<token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"accountId\": \"0e001b8f-64a5-481a-a564-14b823bf836c\",\n    \"amount\": 120,\n    \"payerName\": \"João da Silva\",\n    \"payerCpfCnpj\": \"01001001000113\",\n    \"transactionId\": \"<string>\",\n    \"description\": \"Cobrança relativa a compra do dia 01-01-2021\",\n    \"tags\": [\n        \"<string>\",\n        \"<string>\"\n    ],\n    \"discountAmount\": 10,\n    \"interestAmount\": 1,\n    \"fineAmount\": 1,\n    \"aditionalInformation\": {\n        \"loja\": \"Loja de teste\"\n    },\n    \"duration\": 123123,\n    \"discountDate\": \"<dateTime>\",\n    \"dueDate\": \"<dateTime>\",\n    \"interestDate\": \"<dateTime>\",\n    \"fineDate\": \"<dateTime>\",\n    \"acceptAfterExpiration\": true\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/pix/dynamic",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"pix",
+										"dynamic"
+									]
+								}
+							},
+							"status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"code\": 422,\n \"errors\": [\n  {\n   \"type\": \"validation_error\",\n   \"property\": \"dueDate\",\n   \"message\": \"campo dueDate deve ser uma data válida\"\n  },\n  {\n   \"type\": \"validation_error\",\n   \"property\": \"dueDate\",\n   \"message\": \"campo dueDate deve ser uma data válida\"\n  }\n ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Listar PIX por ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJraWQiOiJKVGlUdEZnTnFrbUFuemMrXC9vNXRvSkhDdVVcL1ZUZWZ0bEVYWlJhZlY2RTQ9IiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiI1aXI0b2c3OGM4cmI3OXJvYnBkbTk5YjY4bSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXBpLWFjY2Vzc1wvY29tcGFueS5hZG1pbiIsImF1dGhfdGltZSI6MTYzODUzMzk5MywiaXNzIjoiaHR0cHM6XC9cL2NvZ25pdG8taWRwLnVzLWVhc3QtMS5hbWF6b25hd3MuY29tXC91cy1lYXN0LTFfcHFURGdtbE1qIiwiZXhwIjoxNjM4NTM3NTkzLCJpYXQiOjE2Mzg1MzM5OTMsInZlcnNpb24iOjIsImp0aSI6IjZmMGVhNDczLWYyOWEtNGFjNS05NWI5LTdkMzE4YTQwYzczNiIsImNsaWVudF9pZCI6IjVpcjRvZzc4YzhyYjc5cm9icGRtOTliNjhtIn0.fJuMLxkvHwjInfxyQocWZ0RHSlt5wGFDcp1DYXkP5o8WAFvVHgkgLzq6nhaya4PCqRP0Q3YCYy3RVipEfbOP9TBgXMmoHdOCskmMlyGZBdZEubFUoJ6LUGa2llXGzwwEjbre6ocv1dz5ZAFQNY2WiZakNwI9DJ10UpSzqRSJ8Q2_kzZeIRS6-jRYgXRMk4eEKFB5g2p4DPgOdU1xvFZzoi3lMZ-9J-61H1_5VQIb92eKeehwALC3wMFb_babDe1_P2XklKVMZpGaR-PUZvBc5H5bRZNc-H5bgtYgk0S2-4TG7C46U3TarQ7T_mCyh64BjCaWNhzA-vUSCOpWbNoYWw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://pix.tecnospeed.com.br/sandbox/pix/charge/9f250eb5-3a37-4c45-ae8e-36d748ef8380",
+							"protocol": "https",
+							"host": [
+								"pix",
+								"tecnospeed",
+								"com",
+								"br"
+							],
+							"path": [
+								"sandbox",
+								"pix",
+								"charge",
+								"9f250eb5-3a37-4c45-ae8e-36d748ef8380"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Untitled Example",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: oauth2",
+										"key": "Authorization",
+										"value": "<token>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/pix",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"pix"
+									]
+								}
+							},
+							"status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"code\": 422,\n \"errors\": [\n  {\n   \"type\": \"validation_error\",\n   \"property\": \"dueDate\",\n   \"message\": \"campo dueDate deve ser uma data válida\"\n  },\n  {\n   \"type\": \"validation_error\",\n   \"property\": \"dueDate\",\n   \"message\": \"campo dueDate deve ser uma data válida\"\n  }\n ]\n}"
+						},
+						{
+							"name": "Untitled Example",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: oauth2",
+										"key": "Authorization",
+										"value": "<token>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/pix",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"pix"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"surrogateKey\": \"sint Duis\",\n \"kind\": \"culpa cillum\",\n \"transactionId\": \"anim est quis minim\",\n \"status\": \"cillum aliquip Duis dese\",\n \"qrcodeLocation\": \"in reprehenderit Ut\",\n \"amount\": -81384735.64502288,\n \"discountAmount\": -22440082.24953124,\n \"interestAmount\": -43663615.36250212,\n \"fineAmount\": -89471758.96343577,\n \"dueDate\": \"2015-06-19T14:52:49.150Z\",\n \"aditionalInformation\": {},\n \"duration\": -77718008.23342985,\n \"acceptAfterExpiration\": true,\n \"reason\": \"irure commodo reprehenderit aliquip\",\n \"revision\": -68049864.92976272,\n \"payerName\": \"proident reprehende\",\n \"payerCpfCnpj\": \"Ut minim ut\",\n \"discountDate\": \"1994-08-19T01:44:55.067Z\",\n \"interestDate\": \"1957-11-01T08:16:35.385Z\",\n \"fineDate\": \"1960-08-08T22:13:25.969Z\",\n \"tags\": [\n  \"reprehenderit nulla ut aliqua pariatur\",\n  \"ipsum\"\n ],\n \"createdAt\": \"1991-03-20T21:05:06.037Z\",\n \"updatedAt\": \"2006-05-16T11:07:28.586Z\",\n \"description\": \"exercitation mollit ipsum\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "QrCode",
+			"item": [
+				{
+					"name": "Imprimir QrCode",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJraWQiOiJKVGlUdEZnTnFrbUFuemMrXC9vNXRvSkhDdVVcL1ZUZWZ0bEVYWlJhZlY2RTQ9IiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiI1aXI0b2c3OGM4cmI3OXJvYnBkbTk5YjY4bSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXBpLWFjY2Vzc1wvY29tcGFueS5hZG1pbiIsImF1dGhfdGltZSI6MTYzODUzMzk5MywiaXNzIjoiaHR0cHM6XC9cL2NvZ25pdG8taWRwLnVzLWVhc3QtMS5hbWF6b25hd3MuY29tXC91cy1lYXN0LTFfcHFURGdtbE1qIiwiZXhwIjoxNjM4NTM3NTkzLCJpYXQiOjE2Mzg1MzM5OTMsInZlcnNpb24iOjIsImp0aSI6IjZmMGVhNDczLWYyOWEtNGFjNS05NWI5LTdkMzE4YTQwYzczNiIsImNsaWVudF9pZCI6IjVpcjRvZzc4YzhyYjc5cm9icGRtOTliNjhtIn0.fJuMLxkvHwjInfxyQocWZ0RHSlt5wGFDcp1DYXkP5o8WAFvVHgkgLzq6nhaya4PCqRP0Q3YCYy3RVipEfbOP9TBgXMmoHdOCskmMlyGZBdZEubFUoJ6LUGa2llXGzwwEjbre6ocv1dz5ZAFQNY2WiZakNwI9DJ10UpSzqRSJ8Q2_kzZeIRS6-jRYgXRMk4eEKFB5g2p4DPgOdU1xvFZzoi3lMZ-9J-61H1_5VQIb92eKeehwALC3wMFb_babDe1_P2XklKVMZpGaR-PUZvBc5H5bRZNc-H5bgtYgk0S2-4TG7C46U3TarQ7T_mCyh64BjCaWNhzA-vUSCOpWbNoYWw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://pix.tecnospeed.com.br/sandbox/qr/c35372b0-8069-4859-bcb6-e5701ad56f1c?type=png",
+							"protocol": "https",
+							"host": [
+								"pix",
+								"tecnospeed",
+								"com",
+								"br"
+							],
+							"path": [
+								"sandbox",
+								"qr",
+								"c35372b0-8069-4859-bcb6-e5701ad56f1c"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "png"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pagamento QrCode",
+			"item": [
+				{
+					"name": "New Request",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJraWQiOiJKVGlUdEZnTnFrbUFuemMrXC9vNXRvSkhDdVVcL1ZUZWZ0bEVYWlJhZlY2RTQ9IiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiI1aXI0b2c3OGM4cmI3OXJvYnBkbTk5YjY4bSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXBpLWFjY2Vzc1wvY29tcGFueS5hZG1pbiIsImF1dGhfdGltZSI6MTYzODUzMzk5MywiaXNzIjoiaHR0cHM6XC9cL2NvZ25pdG8taWRwLnVzLWVhc3QtMS5hbWF6b25hd3MuY29tXC91cy1lYXN0LTFfcHFURGdtbE1qIiwiZXhwIjoxNjM4NTM3NTkzLCJpYXQiOjE2Mzg1MzM5OTMsInZlcnNpb24iOjIsImp0aSI6IjZmMGVhNDczLWYyOWEtNGFjNS05NWI5LTdkMzE4YTQwYzczNiIsImNsaWVudF9pZCI6IjVpcjRvZzc4YzhyYjc5cm9icGRtOTliNjhtIn0.fJuMLxkvHwjInfxyQocWZ0RHSlt5wGFDcp1DYXkP5o8WAFvVHgkgLzq6nhaya4PCqRP0Q3YCYy3RVipEfbOP9TBgXMmoHdOCskmMlyGZBdZEubFUoJ6LUGa2llXGzwwEjbre6ocv1dz5ZAFQNY2WiZakNwI9DJ10UpSzqRSJ8Q2_kzZeIRS6-jRYgXRMk4eEKFB5g2p4DPgOdU1xvFZzoi3lMZ-9J-61H1_5VQIb92eKeehwALC3wMFb_babDe1_P2XklKVMZpGaR-PUZvBc5H5bRZNc-H5bgtYgk0S2-4TG7C46U3TarQ7T_mCyh64BjCaWNhzA-vUSCOpWbNoYWw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"amount\": 10.95,\r\n  \"accountId\": \"4248f2cc-699b-4fae-8ca7-055ff01cc45b\",\r\n  \"emv\": \"00020101021126730014br.gov.bcb.pix0136d7f4e67c-ba32-4ed3-8cac-322df18c23280211lorem ipsum520400005303986540510.285802BR5915Pessoa Juridica6009SAO PAULO62070503***6304748E\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://pix.tecnospeed.com.br/sandbox/payments",
+							"protocol": "https",
+							"host": [
+								"pix",
+								"tecnospeed",
+								"com",
+								"br"
+							],
+							"path": [
+								"sandbox",
+								"payments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJraWQiOiJKVGlUdEZnTnFrbUFuemMrXC9vNXRvSkhDdVVcL1ZUZWZ0bEVYWlJhZlY2RTQ9IiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiI1aXI0b2c3OGM4cmI3OXJvYnBkbTk5YjY4bSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXBpLWFjY2Vzc1wvY29tcGFueS5hZG1pbiIsImF1dGhfdGltZSI6MTYzODUzMzk5MywiaXNzIjoiaHR0cHM6XC9cL2NvZ25pdG8taWRwLnVzLWVhc3QtMS5hbWF6b25hd3MuY29tXC91cy1lYXN0LTFfcHFURGdtbE1qIiwiZXhwIjoxNjM4NTM3NTkzLCJpYXQiOjE2Mzg1MzM5OTMsInZlcnNpb24iOjIsImp0aSI6IjZmMGVhNDczLWYyOWEtNGFjNS05NWI5LTdkMzE4YTQwYzczNiIsImNsaWVudF9pZCI6IjVpcjRvZzc4YzhyYjc5cm9icGRtOTliNjhtIn0.fJuMLxkvHwjInfxyQocWZ0RHSlt5wGFDcp1DYXkP5o8WAFvVHgkgLzq6nhaya4PCqRP0Q3YCYy3RVipEfbOP9TBgXMmoHdOCskmMlyGZBdZEubFUoJ6LUGa2llXGzwwEjbre6ocv1dz5ZAFQNY2WiZakNwI9DJ10UpSzqRSJ8Q2_kzZeIRS6-jRYgXRMk4eEKFB5g2p4DPgOdU1xvFZzoi3lMZ-9J-61H1_5VQIb92eKeehwALC3wMFb_babDe1_P2XklKVMZpGaR-PUZvBc5H5bRZNc-H5bgtYgk0S2-4TG7C46U3TarQ7T_mCyh64BjCaWNhzA-vUSCOpWbNoYWw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://pix.tecnospeed.com.br/sandbox/payments/{paymentId}",
+							"protocol": "https",
+							"host": [
+								"pix",
+								"tecnospeed",
+								"com",
+								"br"
+							],
+							"path": [
+								"sandbox",
+								"payments",
+								"{paymentId}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "sandbox",
+			"value": "https://pix.tecnospeed.com.br/sandbox"
+		},
+		{
+			"key": "production",
+			"value": "https://pix.tecnospeed.com.br/api/v1"
+		}
+	]
+}
